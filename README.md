@@ -6,13 +6,13 @@ This is custom DayZ Epoch script pack for Chernarus only.
 
 - Animated Heli Crash
 - Name Tags
-- Custom Menu for specific small scripts
+- Custom Menu for specific small admin scripts (tested with Infistar)
 - Selfbloodbag
 - Autorefuel
 - Salvage modification to remove every part
-- NPC (Sarge AI)
+- NPC (Sarge AI) with modified weapons
 - Side Missions (EMS)
-- Custom debugmonitor with mission display
+- Custom debugmonitor with mission display (/w toggle)
 - AI Zone Alpha
 - Several Map Updates
 - Churches replaced to be accessable
@@ -22,9 +22,9 @@ This is custom DayZ Epoch script pack for Chernarus only.
 - Service Station near Stary City
 - Snap Building
 - Indestructible Bases
-- Extra Vehicles
+- Extra Vehicles (Merlin, M113Ambul_UN_EP1, BTR40_TK_GUE_EP1 , M1133_MEV_EP1, Bell Heli)
 - No Plot 
-- Tow & Lift
+- Tow & Lift with modified vehicle/heli list
 - No Tow on locked vehicles
 
 ## Map Updates
