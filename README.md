@@ -4,46 +4,29 @@ This is custom dayz epoch script pack for Chernarus only.
 
 ### Modifications
 
+- PvE ( No PvP allowed! )
 - Animated Heli Crash
-http://opendayz.net/threads/epoch-animated-heli-crashes.15051/
 - Name Tags
-http://opendayz.net/threads/release-cpc-name-tags.13292/
 - Custom Menu for specific small scripts
 - Selfbloodbag
-http://opendayz.net/threads/krixes-self-bloodbag-script.12288/
 - Autorefuel
-https://board.nitrado.net/support-de-german-only/support-gameserver/dayz/36409/auto-refuel-for-dummies/
 - Salvage modification to remove every part
-https://board.nitrado.net/support-de-german-only/support-gameserver/dayz/55833/bexs-epoch-pack-f-r-1-0-3-und-1-0-3-1/
 - NPC (Sarge AI)
-https://github.com/Swiss-Sarge/SAR_AI-1.5.0
 - Side Missions (EMS)
-https://github.com/TheFuchs/EMS-Epoch-Mission-System
 - Custom debugmonitor with mission display
 - AI Zone Alpha
-http://epochmod.com/forum/index.php?/topic/4666-zone-alpha/?hl=+zone++alpha
 - Several Map Updates
 - Churches replaced to be accessable
-https://board.nitrado.net/support-de-german-only/support-gameserver/dayz/55833/bexs-epoch-pack-f-r-1-0-3-und-1-0-3-1/
 - New Traders & Changes
-https://board.nitrado.net/support-de-german-only/support-gameserver/dayz/55833/bexs-epoch-pack-f-r-1-0-3-und-1-0-3-1/
 - Traders Safezone
-http://opendayz.net/threads/epoch-safe-zone-commander-god-anti-backpack-stealing-no-shooting-no-vehicle-weapons.14877/
 - Wrecks with Loot
-http://opendayz.net/threads/custom-wrecks-with-loot-why-limit-it-to-heli-crashes-p.10426/
 - Service Station near Stary City
-http://epochmod.com/forum/index.php?/topic/3935-release-vehicle-service-point-refuel-repair-rearm-script/
 - Snap Building
-http://dayzepoch.com/forum/index.php?/topic/5117-building-snapping/
 - Indestructible Bases
-http://dayzepoch.com/forum/index.php?/topic/1673-how-to-cpc-indestructible-bases/
 - Extra Vehicles
-https://board.nitrado.net/support-de-german-only/support-gameserver/dayz/55833/bexs-epoch-pack-f-r-1-0-3-und-1-0-3-1/
 - No Plot 
 - Tow & Lift
-http://www.armaholic.com/page.php?id=9285
 - No Tow on locked vehicles
-http://epochmod.com/forum/index.php?/topic/2112-tutorial-disabling-r3f-towlift-for-locked-vehicles/
 
 ## Map Updates
 
@@ -81,6 +64,27 @@ http://epochmod.com/forum/index.php?/topic/2112-tutorial-disabling-r3f-towlift-f
 ### Configuration
 
 - To get access to the script menu, open ```\dayz_private_1.epoch.chernarus\scripts\custom_menu.sqf``` and add your Arma2 playerid like ```if ((getPlayerUID player) in ["12345"]) then {```
+
+### Credits
+
+http://opendayz.net/threads/epoch-animated-heli-crashes.15051/
+http://opendayz.net/threads/release-cpc-name-tags.13292/
+http://opendayz.net/threads/krixes-self-bloodbag-script.12288/
+https://board.nitrado.net/support-de-german-only/support-gameserver/dayz/36409/auto-refuel-for-dummies/
+https://board.nitrado.net/support-de-german-only/support-gameserver/dayz/55833/bexs-epoch-pack-f-r-1-0-3-und-1-0-3-1/
+https://github.com/Swiss-Sarge/SAR_AI-1.5.0
+https://github.com/TheFuchs/EMS-Epoch-Mission-System
+http://epochmod.com/forum/index.php?/topic/4666-zone-alpha/?hl=+zone++alpha
+http://opendayz.net/threads/epoch-safe-zone-commander-god-anti-backpack-stealing-no-shooting-no-vehicle-weapons.14877/
+http://opendayz.net/threads/custom-wrecks-with-loot-why-limit-it-to-heli-crashes-p.10426/
+http://epochmod.com/forum/index.php?/topic/3935-release-vehicle-service-point-refuel-repair-rearm-script/
+http://dayzepoch.com/forum/index.php?/topic/5117-building-snapping/
+http://dayzepoch.com/forum/index.php?/topic/1673-how-to-cpc-indestructible-bases/
+http://www.armaholic.com/page.php?id=9285
+http://epochmod.com/forum/index.php?/topic/2112-tutorial-disabling-r3f-towlift-for-locked-vehicles/
+http://epochmod.com/forum/index.php?/topic/316-multi-release-cherno-race-tracks-and-custom-campstowns/
+http://epochmod.com/forum/index.php?/topic/316-multi-release-cherno-race-tracks-and-custom-campstowns/
+http://dayzepoch.com/forum/index.php?/topic/325-multi-release-poi-chernarus-by-team-bbc/
 
 ### Donate
 
