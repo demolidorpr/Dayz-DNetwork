@@ -1,6 +1,6 @@
 ## D-Network Dayz Epoch Server Pack 1.0.3.1
 
-This is custom dayz epoch script pack for Chernarus only. 
+This is custom DayZ PvE Epoch script pack for Chernarus only. 
 
 ### Modifications
 
@@ -69,32 +69,32 @@ This is custom dayz epoch script pack for Chernarus only.
 
 #### Modifications
 
-http://opendayz.net/threads/epoch-animated-heli-crashes.15051/
-http://opendayz.net/threads/release-cpc-name-tags.13292/
-http://opendayz.net/threads/krixes-self-bloodbag-script.12288/
-https://board.nitrado.net/support-de-german-only/support-gameserver/dayz/36409/auto-refuel-for-dummies/
-https://board.nitrado.net/support-de-german-only/support-gameserver/dayz/55833/bexs-epoch-pack-f-r-1-0-3-und-1-0-3-1/
-https://github.com/Swiss-Sarge/SAR_AI-1.5.0
-https://github.com/TheFuchs/EMS-Epoch-Mission-System
-http://epochmod.com/forum/index.php?/topic/4666-zone-alpha/?hl=+zone++alpha
-http://opendayz.net/threads/epoch-safe-zone-commander-god-anti-backpack-stealing-no-shooting-no-vehicle-weapons.14877/
-http://opendayz.net/threads/custom-wrecks-with-loot-why-limit-it-to-heli-crashes-p.10426/
-http://epochmod.com/forum/index.php?/topic/3935-release-vehicle-service-point-refuel-repair-rearm-script/
-http://dayzepoch.com/forum/index.php?/topic/5117-building-snapping/
-http://dayzepoch.com/forum/index.php?/topic/1673-how-to-cpc-indestructible-bases/
-http://www.armaholic.com/page.php?id=9285
-http://epochmod.com/forum/index.php?/topic/2112-tutorial-disabling-r3f-towlift-for-locked-vehicles/
+- http://opendayz.net/threads/epoch-animated-heli-crashes.15051/
+- http://opendayz.net/threads/release-cpc-name-tags.13292/
+- http://opendayz.net/threads/krixes-self-bloodbag-script.12288/
+- https://board.nitrado.net/support-de-german-only/support-gameserver/dayz/36409/auto-refuel-for-dummies/
+- https://board.nitrado.net/support-de-german-only/support-gameserver/dayz/55833/bexs-epoch-pack-f-r-1-0-3-und-1-0-3-1/
+- https://github.com/Swiss-Sarge/SAR_AI-1.5.0
+- https://github.com/TheFuchs/EMS-Epoch-Mission-System
+- http://epochmod.com/forum/index.php?/topic/4666-zone-alpha/?hl=+zone++alpha
+- http://opendayz.net/threads/epoch-safe-zone-commander-god-anti-backpack-stealing-no-shooting-no-vehicle-weapons.14877/
+- http://opendayz.net/threads/custom-wrecks-with-loot-why-limit-it-to-heli-crashes-p.10426/
+- http://epochmod.com/forum/index.php?/topic/3935-release-vehicle-service-point-refuel-repair-rearm-script/
+- http://dayzepoch.com/forum/index.php?/topic/5117-building-snapping/
+- http://dayzepoch.com/forum/index.php?/topic/1673-how-to-cpc-indestructible-bases/
+- http://www.armaholic.com/page.php?id=9285
+- http://epochmod.com/forum/index.php?/topic/2112-tutorial-disabling-r3f-towlift-for-locked-vehicles/
 
 #### Mappings
 
-http://epochmod.com/forum/index.php?/topic/316-multi-release-cherno-race-tracks-and-custom-campstowns/
-http://epochmod.com/forum/index.php?/topic/316-multi-release-cherno-race-tracks-and-custom-campstowns/
-http://dayzepoch.com/forum/index.php?/topic/325-multi-release-poi-chernarus-by-team-bbc/
-http://epochmod.com/forum/index.php?/topic/1918-nwaf-military-base/
-http://opendayz.net/threads/map-addition-chernogorsk-quarantine-zone.14634/
-https://board.nitrado.net/support-de-german-only/support-gameserver/dayz/49945/lw-dayz-ultima-ultima-epoch-pack/
-http://opendayz.net/threads/various-camping-tent-sites.12623/
-https://github.com/AVendettaForYou/DayZ_Map_Additions/
+- http://epochmod.com/forum/index.php?/topic/316-multi-release-cherno-race-tracks-and-custom-campstowns/
+- http://epochmod.com/forum/index.php?/topic/316-multi-release-cherno-race-tracks-and-custom-campstowns/
+- http://dayzepoch.com/forum/index.php?/topic/325-multi-release-poi-chernarus-by-team-bbc/
+- http://epochmod.com/forum/index.php?/topic/1918-nwaf-military-base/
+- http://opendayz.net/threads/map-addition-chernogorsk-quarantine-zone.14634/
+- https://board.nitrado.net/support-de-german-only/support-gameserver/dayz/49945/lw-dayz-ultima-ultima-epoch-pack/
+- http://opendayz.net/threads/various-camping-tent-sites.12623/
+- https://github.com/AVendettaForYou/DayZ_Map_Additions/
 
 ### Donate
 
