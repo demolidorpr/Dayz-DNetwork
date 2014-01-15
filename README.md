@@ -67,6 +67,8 @@ This is custom dayz epoch script pack for Chernarus only.
 
 ### Credits
 
+#### Modifications
+
 http://opendayz.net/threads/epoch-animated-heli-crashes.15051/
 http://opendayz.net/threads/release-cpc-name-tags.13292/
 http://opendayz.net/threads/krixes-self-bloodbag-script.12288/
@@ -82,9 +84,17 @@ http://dayzepoch.com/forum/index.php?/topic/5117-building-snapping/
 http://dayzepoch.com/forum/index.php?/topic/1673-how-to-cpc-indestructible-bases/
 http://www.armaholic.com/page.php?id=9285
 http://epochmod.com/forum/index.php?/topic/2112-tutorial-disabling-r3f-towlift-for-locked-vehicles/
+
+#### Mappings
+
 http://epochmod.com/forum/index.php?/topic/316-multi-release-cherno-race-tracks-and-custom-campstowns/
 http://epochmod.com/forum/index.php?/topic/316-multi-release-cherno-race-tracks-and-custom-campstowns/
 http://dayzepoch.com/forum/index.php?/topic/325-multi-release-poi-chernarus-by-team-bbc/
+http://epochmod.com/forum/index.php?/topic/1918-nwaf-military-base/
+http://opendayz.net/threads/map-addition-chernogorsk-quarantine-zone.14634/
+https://board.nitrado.net/support-de-german-only/support-gameserver/dayz/49945/lw-dayz-ultima-ultima-epoch-pack/
+http://opendayz.net/threads/various-camping-tent-sites.12623/
+https://github.com/AVendettaForYou/DayZ_Map_Additions/
 
 ### Donate
 
