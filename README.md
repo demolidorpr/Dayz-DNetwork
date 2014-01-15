@@ -1,10 +1,9 @@
 ## D-Network Dayz Epoch Server Pack 1.0.3.1
 
-This is custom DayZ PvE Epoch script pack for Chernarus only. 
+This is custom DayZ Epoch script pack for Chernarus only. 
 
 ### Modifications
 
-- PvE ( No PvP allowed! )
 - Animated Heli Crash
 - Name Tags
 - Custom Menu for specific small scripts
