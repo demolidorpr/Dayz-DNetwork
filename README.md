@@ -26,6 +26,7 @@ This is custom DayZ Epoch script pack for Chernarus only.
 - No Plot 
 - Tow & Lift with modified vehicle/heli list
 - No Tow on locked vehicles
+- Sarge AI invisible fix
 
 ## Map Updates
 
@@ -83,6 +84,7 @@ This is custom DayZ Epoch script pack for Chernarus only.
 - http://dayzepoch.com/forum/index.php?/topic/1673-how-to-cpc-indestructible-bases/
 - http://www.armaholic.com/page.php?id=9285
 - http://epochmod.com/forum/index.php?/topic/2112-tutorial-disabling-r3f-towlift-for-locked-vehicles/
+- http://opendayz.net/threads/1-5-or-1-6.11631/#post-58926
 
 #### Mappings
 
