@@ -29,6 +29,8 @@ This is custom DayZ Epoch script pack for Chernarus only.
 - Sarge AI invisible fix
 - Vehicle Master Key
 - EVAC Chopper
+- No Salvage on locked vehicles
+- No Damage on locked vehicles
 
 ## Map Updates
 

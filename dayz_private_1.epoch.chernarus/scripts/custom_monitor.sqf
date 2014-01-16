@@ -1,6 +1,5 @@
 fnc_debug = {
     debugMonitor = true;
-    adminMonitor = false;
     while {debugMonitor} do
     {
 					_nearestCity = nearestLocations [getPos player, ["NameCityCapital","NameCity","NameVillage","NameLocal"],750];
