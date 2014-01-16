@@ -2,6 +2,16 @@
 	DayZ Base Building
 	Made for DayZ Epoch please ask permission to use/edit/distrubute email vbawol@veteranbastards.com.
 */
+/*
+Build Snapping - Extended v1.3
+
+Idea and first code:
+Maca
+
+Reworked:
+OtterNas3
+01/11/2014
+*/
 private ["_location","_dir","_classname","_item","_hasrequireditem","_missing","_hastoolweapon","_cancel","_reason","_started","_finished","_animState","_isMedic","_dis","_sfx","_hasbuilditem","_tmpbuilt","_onLadder","_isWater","_require","_text","_offset","_IsNearPlot","_isOk","_location1","_location2","_counter","_limit","_proceed","_num_removed","_position","_object","_canBuildOnPlot","_friendlies","_nearestPole","_ownerID","_findNearestPoles","_findNearestPole","_distance","_classnametmp","_ghost","_isPole","_needText","_lockable","_zheightchanged","_rotate","_combination_1","_combination_2","_combination_3","_combination_4","_combination","_combination_1_Display","_combinationDisplay","_zheightdirection","_abort","_isNear","_need","_objHupDiff","_needNear","_vehicle","_inVehicle","_previewCounter","_requireplot","_objHDiff","_isLandFireDZ","_isTankTrap"];
 
 if(DZE_ActionInProgress) exitWith { cutText [(localize "str_epoch_player_40") , "PLAIN DOWN"]; };
@@ -139,7 +149,7 @@ _IsNearPlot = count (_findNearestPole);
 // If item is plot pole and another one exists within 45m
 if(_isPole and _IsNearPlot > 0) exitWith {  DZE_ActionInProgress = false; cutText [(localize "str_epoch_player_44") , "PLAIN DOWN"]; };
 
-if(_IsNearPlot == 0) then {
+if(_IsNearPlot <= 0) then {
 
 	// Allow building of plot
 	if(_requireplot == 0 or _isLandFireDZ) then {
@@ -226,7 +236,9 @@ if (_hasrequireditem) then {
 	SnappedOffsetZ = 0;
 	SnappingResetPos = false;
 
-	s_building_snapping = player addAction ["<t color=""#0000ff"">Toggle Snapping</t>", "custom\player_toggleSnapping.sqf",false, 3, true, false, "",""];
+	if (isClass (missionConfigFile >> "SnapPoints" >> _classname)) then {
+		s_building_snapping = player addAction ["<t color=""#0000ff"">Toggle Snapping</t>", "custom\snap_build\player_toggleSnapping.sqf",_classname, 3, true, false, "",""];
+	};
 	//s_building_rotate = player addAction ["<t color=""#0000ff"">Rotate</t>", "dayz_code\actions\player_buildingRotate.sqf",false, 3, true, false, "",""];
 	
 	_snapper = [_object, _classname] spawn snap_object;
@@ -260,7 +272,7 @@ if (_hasrequireditem) then {
 			detach _object;
 		};
 
-		_previewCounter = _previewCounter - 0.5;
+		_previewCounter = _previewCounter - 1;
 		
 		if(((SnappingOffset select 2) > 5) or ((SnappingOffset select 2) < -5)) exitWith {
 			_isOk = false;

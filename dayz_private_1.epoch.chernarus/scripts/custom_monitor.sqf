@@ -39,7 +39,7 @@ fnc_debug = {
 				<t size='1' font='Bitstream' align='left' color='#EEC900'>Minor:</t><t size='1' font='Bitstream' align='right' color='#FFFAF0'>%21</t><br/>
 				<t size='1' font='Bitstream' align='center' color='#DDDDDD'></t><br/>
 				<t size='1' font='Bitstream' align='center' color='#5882FA'>Restart in %18 minutes</t><br/>
-				<t size='1' font='Bitstream' align='center' color='#DDDDDD'>D-Network Dayz Epoch (%17/12)</t><br/>",
+				<t size='1' font='Bitstream' align='center' color='#DDDDDD'>SERVER_NAME (%17/12)</t><br/>",
 
 							r_player_blood,												//1
 							round _humanity,											//2

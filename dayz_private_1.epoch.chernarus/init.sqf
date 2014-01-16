@@ -58,7 +58,7 @@ EpochEvents = [["any","any","any","any",30,"crash_spawner"],["any","any","any","
 dayz_fullMoonNights = false;
 
 //Load in compiled functions
-call compile preprocessFileLineNumbers "\z\addons\dayz_code\init\variables.sqf";				//Initilize the Variables (IMPORTANT: Must happen very early)
+call compile preprocessFileLineNumbers "custom\variables.sqf";				// \z\addons\dayz_code\init Initilize the Variables (IMPORTANT: Must happen very early)
 progressLoadingScreen 0.1;
 call compile preprocessFileLineNumbers "\z\addons\dayz_code\init\publicEH.sqf";				//Initilize the publicVariable event handlers
 progressLoadingScreen 0.2;
@@ -106,6 +106,12 @@ if (!isDedicated) then {
 	
 	// Custom Monitor
 	[] execVM "scripts\custom_monitor.sqf";
+	
+	// Master Key
+	[] execVM "scripts\vehiclefunctions.sqf";
+	
+	// Evac Chopper
+	[] execVM "addons\JAEM\EvacChopper_init.sqf";
 };
 
 
@@ -128,7 +134,7 @@ call compile preprocessfile "addons\SHK_pos\shk_pos_init.sqf";
 [] execVM "scripts\kh_actions.sqf"; 
 
 // Name Tags
-[] execVM "scripts\cpcnametags.sqf";
+[] execVM "scripts\skaronametags.sqf";
 
 // Churches
 [] execVM "scripts\hide_churches.sqf";

@@ -40,7 +40,7 @@ _hitpoints = _vehicle call vehicle_getHitpoints;
 	};
 
 	// allow removal of any lightly damaged parts
-	if (_damage < 1 and _damage > 0) then {
+         if (_damage < 1 ) then {
 		
 		// Do not allow removal of engine or fueltanks
                     if( _part == "PartGlass" or _part == "PartWheel" or _part == "PartEngine" or _part == "PartVRotor" or _part == "PartFueltank" or _part == "PartGeneric" ) then {

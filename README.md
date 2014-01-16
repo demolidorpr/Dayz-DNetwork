@@ -4,7 +4,7 @@ This is custom DayZ Epoch script pack for Chernarus only.
 
 ### Modifications
 
-- Animated Heli Crash
+- Animated Heli, AN2 Crash
 - Name Tags
 - Custom Menu for specific small admin scripts (tested with Infistar)
 - Selfbloodbag
@@ -27,6 +27,8 @@ This is custom DayZ Epoch script pack for Chernarus only.
 - Tow & Lift with modified vehicle/heli list
 - No Tow on locked vehicles
 - Sarge AI invisible fix
+- Vehicle Master Key
+- EVAC Chopper
 
 ## Map Updates
 
@@ -70,7 +72,8 @@ This is custom DayZ Epoch script pack for Chernarus only.
 #### Modifications
 
 - http://opendayz.net/threads/epoch-animated-heli-crashes.15051/
-- http://opendayz.net/threads/release-cpc-name-tags.13292/
+- http://opendayz.net/threads/animated-c130-crashes-eventually-dropping-carepackages-at-way-points.12341/
+- http://opendayz.net/threads/release-name-tags-2-0-skaronator-version.14610/
 - http://opendayz.net/threads/krixes-self-bloodbag-script.12288/
 - https://board.nitrado.net/support-de-german-only/support-gameserver/dayz/36409/auto-refuel-for-dummies/
 - https://board.nitrado.net/support-de-german-only/support-gameserver/dayz/55833/bexs-epoch-pack-f-r-1-0-3-und-1-0-3-1/
@@ -85,6 +88,8 @@ This is custom DayZ Epoch script pack for Chernarus only.
 - http://www.armaholic.com/page.php?id=9285
 - http://epochmod.com/forum/index.php?/topic/2112-tutorial-disabling-r3f-towlift-for-locked-vehicles/
 - http://opendayz.net/threads/1-5-or-1-6.11631/#post-58926
+- http://epochmod.com/forum/index.php?/topic/5972-release-vehicle-key-changer-for-making-masterkey-v-11/
+- http://epochmod.com/forum/index.php?/topic/6111-release-jaem-just-another-evac-chopper-mod-v10/
 
 #### Mappings
 
