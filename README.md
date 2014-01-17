@@ -12,7 +12,7 @@ This is custom DayZ Epoch script pack for Chernarus only. Optimized for Nitrado 
 - Salvage modification to remove every part
 - NPC (Sarge AI) with modified weapons
 - Side Missions (EMS)
-- Custom debugmonitor with mission display (/w toggle)
+- Custom debugmonitor with mission display
 - AI Zone Alpha
 - Several Map Updates
 - Churches replaced to be accessable

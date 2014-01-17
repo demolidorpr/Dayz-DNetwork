@@ -47,7 +47,7 @@ fnc_debug = {
 							_kills,														//5
 							_headShots,													//6
 							(dayz_Survived),											//7
-							(360-(round(serverTime/60))),								//8 change the 180 to suit your server mins for restarts
+							(360-(round(serverTime/60))),								//8
 							_dmpic,														//9
 							_logo,														//10
 							_textCity,													//11
@@ -67,5 +67,4 @@ fnc_debug = {
 };
 
 sleep 25.5;
-systemChat ("<System>: -END- key toggles the debugmonitor"); 
 [] spawn fnc_debug;
