@@ -1,6 +1,6 @@
 ## D-Network Dayz Epoch Server Pack 1.0.3.1
 
-This is custom DayZ Epoch script pack for Chernarus only. 
+This is custom DayZ Epoch script pack for Chernarus only. Optimized for Nitrado Admin Tool. 
 
 ### Modifications
 
@@ -69,6 +69,13 @@ This is custom DayZ Epoch script pack for Chernarus only.
 
 - To get access to the script menu, open ```\dayz_private_1.epoch.chernarus\scripts\custom_menu.sqf``` and add your Arma2 playerid like ```if ((getPlayerUID player) in ["12345"]) then {```
 
+
+- To deactivate Nitrado Admin Tool, please remove in ```\dayz_server\init\server_functions.sqf``` the last line ```[] spawn compile preprocessFileLineNumbers "@AH\AH.sqf";```
+
+### Donate
+
+Feel free to support this pack by donating at http://server.nitrado.net/donations/donate/300391
+
 ### Credits
 
 #### Modifications
@@ -85,7 +92,7 @@ This is custom DayZ Epoch script pack for Chernarus only.
 - http://opendayz.net/threads/epoch-safe-zone-commander-god-anti-backpack-stealing-no-shooting-no-vehicle-weapons.14877/
 - http://opendayz.net/threads/custom-wrecks-with-loot-why-limit-it-to-heli-crashes-p.10426/
 - http://epochmod.com/forum/index.php?/topic/3935-release-vehicle-service-point-refuel-repair-rearm-script/
-- http://dayzepoch.com/forum/index.php?/topic/5117-building-snapping/
+- http://epochmod.com/forum/index.php?/topic/6036-release-build-snapping-extended-v13/
 - http://dayzepoch.com/forum/index.php?/topic/1673-how-to-cpc-indestructible-bases/
 - http://www.armaholic.com/page.php?id=9285
 - http://epochmod.com/forum/index.php?/topic/2112-tutorial-disabling-r3f-towlift-for-locked-vehicles/
@@ -103,7 +110,3 @@ This is custom DayZ Epoch script pack for Chernarus only.
 - https://board.nitrado.net/support-de-german-only/support-gameserver/dayz/49945/lw-dayz-ultima-ultima-epoch-pack/
 - http://opendayz.net/threads/various-camping-tent-sites.12623/
 - https://github.com/AVendettaForYou/DayZ_Map_Additions/
-
-### Donate
-
-Feel free to support this pack by donating at http://server.nitrado.net/donations/donate/300391
