@@ -2,6 +2,8 @@ _crate = _this select 0;
 clearWeaponCargoGlobal _crate;
 clearMagazineCargoGlobal _crate;
 
+_crate setVariable ["permaLoot",true];
+
 // RIFLES
 _crate addWeaponCargoGlobal ["G36A_camo", 1];
 _crate addWeaponCargoGlobal ["M4A1_AIM_SD_camo", 1];

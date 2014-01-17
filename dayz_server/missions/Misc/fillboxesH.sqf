@@ -1,5 +1,7 @@
 _crate3 = _this select 0;
 
+_crate setVariable ["permaLoot",true];
+
 clearWeaponCargoGlobal _crate3;
 clearMagazineCargoGlobal _crate3;
 

@@ -1,6 +1,8 @@
 //Created by TheSzerdi edited by MimiC
 _crate = _this select 0;
 
+_crate setVariable ["permaLoot",true];
+
 clearWeaponCargoGlobal _crate;
 clearMagazineCargoGlobal _crate;
 
