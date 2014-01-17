@@ -69,6 +69,7 @@ This is custom DayZ Epoch script pack for Chernarus only. Optimized for Nitrado 
 
 - To get access to the script menu, open ```\dayz_private_1.epoch.chernarus\scripts\custom_menu.sqf``` and add your Arma2 playerid like ```if ((getPlayerUID player) in ["12345"]) then {```
 
+- Change ```\dayz_private_1.epoch.chernarus\scripts\custom_monitor.sqf``` to your needs (Server Name, Restart Time, ...)
 
 - To deactivate Nitrado Admin Tool, please remove in ```\dayz_server\init\server_functions.sqf``` the line ```[] spawn compile preprocessFileLineNumbers "@AH\AH.sqf";```
 

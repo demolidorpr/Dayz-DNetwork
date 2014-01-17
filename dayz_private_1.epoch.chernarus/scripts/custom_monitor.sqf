@@ -67,4 +67,5 @@ fnc_debug = {
 };
 
 sleep 25.5;
+systemChat ("<System>: -END- key toggles the debugmonitor"); 
 [] spawn fnc_debug;
