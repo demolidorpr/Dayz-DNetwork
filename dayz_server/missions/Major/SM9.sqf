@@ -23,7 +23,6 @@ _coords = [_coord1, _coord2, _coord3, _coord4, _coord5, _coord6, _coord7, _coord
 //Mission accomplished
 [nil,nil,rTitleText,"A firebase is being constructed! Stop the bandits and secure the construction materials for yourself!", "PLAIN",6] call RE;
 [nil,nil,rGlobalRadio,"A firebase is being constructed! Stop the bandits and secure the construction materials for yourself!"] call RE;
-[nil,nil,rHINT,"A firebase is being constructed! Stop the bandits and secure the construction materials for yourself!"] call RE;
 MissionGoName = "Bandit Firebase";
 publicVariable "MissionGoName"; 
 
@@ -49,7 +48,6 @@ waitUntil{{isPlayer _x && _x distance baserunover < 20  } count playableunits > 
 //Mission accomplished
 [nil,nil,rTitleText,"Survivors have secured the construction materials.", "PLAIN",6] call RE;
 [nil,nil,rGlobalRadio,"Survivors have secured the construction materials."] call RE;
-[nil,nil,rHINT,"Survivors have secured the construction materials."] call RE;
 
 [] execVM "debug\remmarkers.sqf";
 MissionGo = 0;

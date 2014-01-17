@@ -10,7 +10,6 @@ _coords = [getMarkerPos "center",0,5500,30,0,20,0] call BIS_fnc_findSafePos;
 //Mission start
 [nil,nil,rTitleText,"Bandits have destroyed a Ural carrying medical supplies and are securing the cargo! Check your map for the location!", "PLAIN",10] call RE;
 [nil,nil,rGlobalRadio,"Bandits have destroyed a Ural carrying medical supplies and are securing the cargo! Check your map for the location!"] call RE;
-[nil,nil,rHINT,"Bandits have destroyed a Ural carrying medical supplies and are securing the cargo! Check your map for the location!"] call RE;
 MissionGoName = "Medical Ural Attack";
 publicVariable "MissionGoName"; 
 
@@ -44,7 +43,6 @@ waitUntil{{isPlayer _x && _x distance _uralcrash < 5  } count playableunits > 0}
 //Mission accomplished
 [nil,nil,rTitleText,"The medical supplies have been secured by survivors!", "PLAIN",6] call RE;
 [nil,nil,rGlobalRadio,"The medical supplies have been secured by survivors!"] call RE;
-[nil,nil,rHINT,"The medical supplies have been secured by survivors!"] call RE;
 
 [] execVM "debug\remmarkers.sqf";
 MissionGo = 0;

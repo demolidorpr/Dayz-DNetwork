@@ -9,7 +9,6 @@ _coords = [getMarkerPos "center",0,5500,100,0,20,0] call BIS_fnc_findSafePos;
 //Mission start
 [nil,nil,rTitleText,"Bandits have discovered a weapons cache! Check your map for the location!", "PLAIN",10] call RE;
 [nil,nil,rGlobalRadio,"Bandits have discovered a weapons cache! Check your map for the location!"] call RE;
-[nil,nil,rHINT,"Bandits have discovered a weapons cache! Check your map for the location!"] call RE;
 MissionGoName = "Weapon Cache";
 
 Ccoords = _coords;
@@ -44,7 +43,6 @@ waitUntil{{isPlayer _x && _x distance _hummer < 10  } count playableunits > 0};
 //Mission accomplished
 [nil,nil,rTitleText,"The weapons cache is under survivor control!", "PLAIN",6] call RE;
 [nil,nil,rGlobalRadio,"The weapons cache is under survivor control!"] call RE;
-[nil,nil,rHINT,"The weapons cache is under survivor control!"] call RE;
 
 [] execVM "debug\remmarkers.sqf";
 MissionGo = 0;

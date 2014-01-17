@@ -10,7 +10,6 @@ _coords = [getMarkerPos "center",0,5500,30,0,20,0] call BIS_fnc_findSafePos;
 //Mission start
 [nil,nil,rTitleText,"A bandit supply helicopter has crash landed! Check your map for the location!", "PLAIN",10] call RE;
 [nil,nil,rGlobalRadio,"A bandit supply helicopter has crash landed! Check your map for the location!"] call RE;
-[nil,nil,rHINT,"A bandit supply helicopter has crash landed! Check your map for the location!"] call RE;
 MissionGoName = "Bandit Supply Heli Crash"
 publicVariable "MissionGoName"; 
 
@@ -46,7 +45,6 @@ waitUntil{{isPlayer _x && _x distance _hueychop < 10  } count playableunits > 0}
 //Mission accomplished
 [nil,nil,rTitleText,"The helicopter has been taken by survivors!", "PLAIN",6] call RE;
 [nil,nil,rGlobalRadio,"The helicopter has been taken by survivors!"] call RE;
-[nil,nil,rHINT,"The helicopter has been taken by survivors!"] call RE;
 
 
 [] execVM "debug\remmarkers.sqf";

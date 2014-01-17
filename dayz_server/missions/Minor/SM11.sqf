@@ -9,7 +9,6 @@ _coords =  [getMarkerPos "center",0,7000,10,0,2000,0] call BIS_fnc_findSafePos;
 //Mission start
 [nil,nil,rTitleText,"A humvee has crashed! Kill any survivors and secure the loot!", "PLAIN",6] call RE;
 [nil,nil,rGlobalRadio,"A humvee has crashed! Kill any survivors and secure the loot!"] call RE;
-[nil,nil,rHINT,"A humvee has crashed! Kill any survivors and secure the loot!"] call RE;
 MissionGoNameMinor = "Humvee Wreck";
 publicVariable "MissionGoNameMinor"; 
 
@@ -62,7 +61,6 @@ sleep 1;
 //Mission accomplished
 [nil,nil,rTitleText,"Good work you've secured the crash site!", "PLAIN",6] call RE;
 [nil,nil,rGlobalRadio,"Good work you've secured the crash site!"] call RE;
-[nil,nil,rHINT,"Good work you've secured the crash site!"] call RE;
 
 [] execVM "debug\remmarkers75.sqf";
 MissionGoMinor = 0;

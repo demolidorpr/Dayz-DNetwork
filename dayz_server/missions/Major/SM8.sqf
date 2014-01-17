@@ -22,7 +22,6 @@ _coords = [_coord1, _coord2, _coord3, _coord4, _coord5, _coord6, _coord7, _coord
 //Mission start
 [nil,nil,rTitleText,"A C-130 has crash landed! Secure it's cargo for yourself!", "PLAIN",6] call RE;
 [nil,nil,rGlobalRadio,"A C-130 has crash landed! Secure it's cargo for yourself!"] call RE;
-[nil,nil,rHINT,"A C-130 has crash landed! Secure it's cargo for yourself!"] call RE;
 MissionGoName = "C-130 Crash";
 publicVariable "MissionGoName"; 
 
@@ -60,7 +59,6 @@ publicVariable "MissionGoName";
 //Mission accomplished
 [nil,nil,rTitleText,"You've secured the crash site! Good work.", "PLAIN",6] call RE;
 [nil,nil,rGlobalRadio,"You've secured the crash site! Good work."] call RE;
-[nil,nil,rHINT,"You've secured the crash site! Good work."] call RE;
 
 SM1 = 1;
 [0] execVM "\z\addons\dayz_server\missions\major\SMfinder.sqf";

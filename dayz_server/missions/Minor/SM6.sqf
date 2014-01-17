@@ -9,7 +9,6 @@ _coords = [getMarkerPos "center",0,5500,10,0,2000,0] call BIS_fnc_findSafePos;
 //Mission start
 [nil,nil,rTitleText,"A bandit weapons truck has crashed! Check your map for the location!", "PLAIN",10] call RE;
 [nil,nil,rGlobalRadio,"A bandit weapons truck has crashed! Check your map for the location!"] call RE;
-[nil,nil,rHINT,"A bandit weapons truck has crashed! Check your map for the location!"] call RE;
 MissionGoNameMinor = "Weapon Truck Crash";
 publicVariable "MissionGoNameMinor"; 
 
@@ -48,7 +47,6 @@ waitUntil{{isPlayer _x && _x distance _uralcrash < 5  } count playableunits > 0}
 //Mission accomplished
 [nil,nil,rTitleText,"The crash site has been secured by survivors!", "PLAIN",6] call RE;
 [nil,nil,rGlobalRadio,"The crash site has been secured by survivors!"] call RE;
-[nil,nil,rHINT,"The crash site has been secured by survivors!"] call RE;
 
 [] execVM "debug\remmarkers75.sqf";
 MissionGoMinor = 0;

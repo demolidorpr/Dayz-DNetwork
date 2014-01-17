@@ -9,7 +9,6 @@ _coords = [getMarkerPos "center",0,5600,100,0,20,0] call BIS_fnc_findSafePos;
 //Mission start
 [nil,nil,rTitleText,"A C-130 carrying medical supplies has crashed and bandits are securing the site! Check your map for the location!", "PLAIN",10] call RE;
 [nil,nil,rGlobalRadio,"A C-130 carrying medical supplies has crashed and bandits are securing the site! Check your map for the location!"] call RE;
-[nil,nil,rHINT,"A C-130 carrying medical supplies has crashed and bandits are securing the site! Check your map for the location!"] call RE;
 MissionGoName = "Medical C-130 Crash";
 publicVariable "MissionGoName"; 
 
@@ -56,7 +55,6 @@ publicVariable "MissionGoName";
 //Mission accomplished
 [nil,nil,rTitleText,"The crash site has been secured by survivors!", "PLAIN",6] call RE;
 [nil,nil,rGlobalRadio,"The crash site has been secured by survivors!"] call RE;
-[nil,nil,rHINT,"The crash site has been secured by survivors!"] call RE;
 
 
 SM1 = 1;

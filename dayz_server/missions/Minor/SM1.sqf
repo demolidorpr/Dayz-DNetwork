@@ -9,7 +9,6 @@ _coords = [getMarkerPos "center",0,5500,2,0,2000,0] call BIS_fnc_findSafePos;
 //Mission start
 [nil,nil,rTitleText,"A bandit hunting party has been spotted! Check your map for the location!", "PLAIN",10] call RE;
 [nil,nil,rGlobalRadio,"A bandit hunting party has been spotted! Check your map for the location!"] call RE;
-[nil,nil,rHINT,"A bandit hunting party has been spotted! Check your map for the location!"] call RE;
 MissionGoNameMinor = "Bandit Hunting";
 publicVariable "MissionGoNameMinor"; 
 
@@ -32,7 +31,6 @@ waitUntil{({alive _x} count (units SniperTeam)) < 1};
 //Mission accomplished
 [nil,nil,rTitleText,"The hunting party has been wiped out!", "PLAIN",6] call RE;
 [nil,nil,rGlobalRadio,"The hunting party has been wiped out!"] call RE;
-[nil,nil,rHINT,"The hunting party has been wiped out!"] call RE;
 
 [] execVM "debug\remmarkers75.sqf";
 MissionGoMinor = 0;

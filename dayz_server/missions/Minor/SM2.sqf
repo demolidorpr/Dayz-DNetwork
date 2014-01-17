@@ -9,7 +9,6 @@ _coords =  [getMarkerPos "center",0,5500,10,0,20,0] call BIS_fnc_findSafePos;
 //Mission start
 [nil,nil,rTitleText,"A group of bandits have taken over a Medical Outpost! Check your map for the location!", "PLAIN",10] call RE;
 [nil,nil,rGlobalRadio,"A group of bandits have taken over a Medical Outpost! Check your map for the location!"] call RE;
-[nil,nil,rHINT,"A group of bandits have taken over a Medical Outpost! Check your map for the location!"] call RE;
 MissionGoNameMinor = "Medical Outpost";
 publicVariable "MissionGoNameMinor"; 
 
@@ -58,8 +57,6 @@ waitUntil{{isPlayer _x && _x distance _baserunover < 5  } count playableunits > 
 //Mission accomplished
 [nil,nil,rTitleText,"The Medical Outpost is under survivor control!", "PLAIN",6] call RE;
 [nil,nil,rGlobalRadio,"The Medical Outpost is under survivor control!"] call RE;
-[nil,nil,rHINT,"The Medical Outpost is under survivor control!"] call RE;
-
 
 [] execVM "debug\remmarkers75.sqf";
 MissionGoMinor = 0;

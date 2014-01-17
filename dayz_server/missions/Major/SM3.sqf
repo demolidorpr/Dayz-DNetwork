@@ -10,7 +10,6 @@ _coords = [getMarkerPos "center",0,5500,50,0,20,0] call BIS_fnc_findSafePos;
 //Mission start
 [nil,nil,rTitleText,"Bandits have set up a medical re-supply camp! Check your map for the location!", "PLAIN",10] call RE;
 [nil,nil,rGlobalRadio,"Bandits have set up a medical re-supply camp! Check your map for the location!"] call RE;
-[nil,nil,rHINT,"Bandits have set up a medical re-supply camp! Check your map for the location!"] call RE;
 MissionGoName = "Medical Supply Camp";
 publicVariable "MissionGoName"; 
 
@@ -47,7 +46,6 @@ waitUntil{{isPlayer _x && _x distance _baserunover < 10  } count playableunits >
 //Mission accomplished
 [nil,nil,rTitleText,"Survivors have taken control of the camp and medical supplies.", "PLAIN",6] call RE;
 [nil,nil,rGlobalRadio,"Survivors have taken control of the camp and medical supplies."] call RE;
-[nil,nil,rHINT,"Survivors have taken control of the camp and medical supplies."] call RE;
 
 [] execVM "debug\remmarkers.sqf";
 MissionGo = 0;

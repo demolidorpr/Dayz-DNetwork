@@ -10,7 +10,6 @@ _coords = [getMarkerPos "center",0,5500,30,0,2000,0] call BIS_fnc_findSafePos;
 //Mission start
 [nil,nil,rTitleText,"A medical supply crate has been secured by bandits! Check your map for the location!", "PLAIN",10] call RE;
 [nil,nil,rGlobalRadio,"A medical supply crate has been secured by bandits! Check your map for the location!"] call RE;
-[nil,nil,rHINT,"A medical supply crate has been secured by bandits! Check your map for the location!"] call RE;
 MissionGoName = "Medical Crate";
 publicVariable "MissionGoName"; 
 
@@ -43,7 +42,6 @@ waitUntil{{isPlayer _x && _x distance _hummer < 10  } count playableunits > 0};
 //Mission accomplished
 [nil,nil,rTitleText,"The medical crate is under survivor control!", "PLAIN",6] call RE;
 [nil,nil,rGlobalRadio,"The medical crate is under survivor control!"] call RE;
-[nil,nil,rHINT,"The medical crate is under survivor control!"] call RE;
 
 [] execVM "debug\remmarkers.sqf";
 MissionGo = 0;

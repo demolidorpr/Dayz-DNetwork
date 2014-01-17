@@ -22,7 +22,6 @@ _coords = [_coord1, _coord2, _coord3, _coord4, _coord5, _coord6, _coord7, _coord
 //Mission start
 [nil,nil,rTitleText,"A humvee has broken down! Secure it's firepower for yourself!", "PLAIN",6] call RE;
 [nil,nil,rGlobalRadio,"A humvee has broken down! Secure it's firepower for yourself!"] call RE;
-[nil,nil,rHINT,"A humvee has broken down! Secure it's firepower for yourself!"] call RE;
 MissionGoName = "Humvee Crash";
 publicVariable "MissionGoName"; 
 
@@ -51,7 +50,6 @@ publicVariable "Ccoords";
 //Mission accomplished
 [nil,nil,rTitleText,"Good work you've secured the humvee!", "PLAIN",6] call RE;
 [nil,nil,rGlobalRadio,"Good work you've secured the humvee!"] call RE;
-[nil,nil,rHINT,"Good work you've secured the humvee!"] call RE;
 MissionGoName = "";
 publicVariable "MissionGoName"; 
 

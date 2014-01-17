@@ -8,7 +8,6 @@ WaitUntil {MissionGoMinor == 1};
 //Mission start
 [nil,nil,rTitleText,"A landing party is establishing a beachhead!", "PLAIN",6] call RE;
 [nil,nil,rGlobalRadio,"A landing party is establishing a beachhead!"] call RE;
-[nil,nil,rHINT,"A landing party is establishing a beachhead!"] call RE;
 MissionGoNameMinor = "Landing Party";
 publicVariable "MissionGoNameMinor"; 
 
@@ -66,7 +65,6 @@ publicVariable "MissionGoNameMinor";
 //Mission accomplished
 [nil,nil,rTitleText,"You've secured the beachhead! Good work.", "PLAIN",6] call RE;
 [nil,nil,rGlobalRadio,"You've secured the beachhead! Good work."] call RE;
-[nil,nil,rHINT,"You've secured the beachhead! Good work."] call RE;
 
 SM1 = 1;
 [0] execVM "\z\addons\dayz_server\missions\minor\SMfinder.sqf";

@@ -21,7 +21,6 @@ _coords = [_coord1, _coord2, _coord3, _coord4, _coord5, _coord6, _coord7, _coord
 //Mission start
 [nil,nil,rTitleText,"An APC has broken down! Secure it's firepower for yourself!", "PLAIN",6] call RE;
 [nil,nil,rGlobalRadio,"An APC has broken down! Secure it's firepower for yourself!"] call RE;
-[nil,nil,rHINT,"An APC has broken down! Secure it's firepower for yourself!"] call RE;
 MissionGoName = "APC Crash";
 publicVariable "MissionGoName"; 
 
@@ -53,7 +52,6 @@ publicVariable "Ccoords";
 //Mission accomplished
 [nil,nil,rTitleText,"Good work you've secured the APC!", "PLAIN",6] call RE;
 [nil,nil,rGlobalRadio,"Good work you've secured the APC!"] call RE;
-[nil,nil,rHINT,"Good work you've secured the APC!"] call RE;
 MissionGoName = "";
 publicVariable "MissionGoName"; 
 
