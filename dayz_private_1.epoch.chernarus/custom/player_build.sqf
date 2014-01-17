@@ -272,7 +272,7 @@ if (_hasrequireditem) then {
 			detach _object;
 		};
 
-		_previewCounter = _previewCounter - 1;
+		_previewCounter = _previewCounter - 0.5;
 		
 		if(((SnappingOffset select 2) > 5) or ((SnappingOffset select 2) < -5)) exitWith {
 			_isOk = false;
