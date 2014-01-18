@@ -37,7 +37,7 @@ SAR_max_grps_soldiers = 1;
 SAR_max_grps_survivors = 1;
 
 // chance for a group to spawn (1-100)
-SAR_chance_bandits = 50;
+SAR_chance_bandits = 60;
 SAR_chance_soldiers = 30;
 SAR_chance_survivors = 50;
 
