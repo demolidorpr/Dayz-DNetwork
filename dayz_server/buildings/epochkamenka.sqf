@@ -9,7 +9,7 @@ If modified and published give credit where it is due thank you.
 if (isServer) then {
 
 _vehicle_1057 = objNull;
-if (true) then
+if (false) then
 {
   _this = createVehicle ["Land_A_Office02", [1261.4543, 2413.8809, 2.8610229e-006], [], 0, "CAN_COLLIDE"];
   _vehicle_1057 = _this;
@@ -18,7 +18,7 @@ if (true) then
 };
 
 _vehicle_1058 = objNull;
-if (true) then
+if (false) then
 {
   _this = createVehicle ["Land_A_Hospital", [1266.8313, 2386.1377, -4.7683716e-006], [], 0, "CAN_COLLIDE"];
   _vehicle_1058 = _this;
@@ -27,7 +27,7 @@ if (true) then
 };
 
 _vehicle_1069 = objNull;
-if (true) then
+if (false) then
 {
   _this = createVehicle ["MAP_HouseV2_01A", [1215.6808, 2414.6992, 1.7642975e-005], [], 0, "CAN_COLLIDE"];
   _vehicle_1069 = _this;
@@ -88,7 +88,7 @@ if (true) then
 };
 
 _vehicle_1102 = objNull;
-if (true) then
+if (false) then
 {
   _this = createVehicle ["Land_a_stationhouse", [1126.2356, 2391.3342, 0.1581327], [], 0, "CAN_COLLIDE"];
   _vehicle_1102 = _this;
@@ -115,7 +115,7 @@ if (true) then
 };
 
 _vehicle_1120 = objNull;
-if (true) then
+if (false) then
 {
   _this = createVehicle ["MAP_dum_mesto_in", [1104.572, 2357.9197, 2.8610229e-006], [], 0, "CAN_COLLIDE"];
   _vehicle_1120 = _this;

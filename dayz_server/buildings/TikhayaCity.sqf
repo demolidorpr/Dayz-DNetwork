@@ -491,7 +491,7 @@
     };
      
     _vehicle_122 = objNull;
-    if (true) then
+    if (false) then
     {
       _this = createVehicle ["Land_A_Hospital", [1110.8076, 2384.8171, -0.073707066], [], 0, "CAN_COLLIDE"];
       _vehicle_122 = _this;
@@ -518,7 +518,7 @@
     };
      
     _vehicle_125 = objNull;
-    if (true) then
+    if (false) then
     {
       _this = createVehicle ["Land_a_stationhouse", [1143.0529, 2372.8704, 0.20664467], [], 0, "CAN_COLLIDE"];
       _vehicle_125 = _this;
@@ -8949,7 +8949,7 @@
     };
      
     _vehicle_1685 = objNull;
-    if (true) then
+    if (false) then
     {
       _this = createVehicle ["MAP_misc_stub1", [1191.5059, 2343.4902, 3.8146973e-006], [], 0, "CAN_COLLIDE"];
       _vehicle_1685 = _this;
@@ -11018,7 +11018,7 @@
     };
      
     _vehicle_1996 = objNull;
-    if (true) then
+    if (false) then
     {
       _this = createVehicle ["MAP_c_GrassCrookedGreen", [1244.5845, 2387.0181, -4.2915344e-006], [], 0, "CAN_COLLIDE"];
       _vehicle_1996 = _this;
