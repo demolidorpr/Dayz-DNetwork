@@ -2083,10 +2083,10 @@ if (true) then
 _vehicle_2453 = objNull;
 if (true) then
 {
-  _this = createVehicle ["Land_A_GeneralStore_01a", [6027.0386, 10403.516, 0.11211345], [], 0, "CAN_COLLIDE"];
+  _this = createVehicle ["Land_A_GeneralStore_01a", [6047.0386, 10403.516, 0.11211345], [], 0, "CAN_COLLIDE"];
   _vehicle_2453 = _this;
   _this setDir -327.57452;
-  _this setPos [6027.0386, 10403.516, 0.11211345];
+  _this setPos [6047.0386, 10403.516, 0.11211345];
 };
 
 _vehicle_2454 = objNull;
