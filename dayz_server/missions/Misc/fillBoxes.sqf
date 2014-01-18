@@ -24,15 +24,15 @@ _crate addWeaponCargoGlobal ["UZI_EP1", 1];
 
 
 // AMMUNITION
-_crate addMagazineCargoGlobal ["17Rnd_9x19_glock17", 10];
-_crate addMagazineCargoGlobal ["30Rnd_9x19_UZI", 10];
-_crate addMagazineCargoGlobal ["30Rnd_762x39_AK47", 10];
-_crate addMagazineCargoGlobal ["30Rnd_762x39_SA58", 10];
-_crate addMagazineCargoGlobal ["30Rnd_556x45_G36", 10];
-_crate addMagazineCargoGlobal ["30Rnd_556x45_StanagSD", 10];
-_crate addMagazineCargoGlobal ["30Rnd_556x45_Stanag", 10];
-_crate addMagazineCargoGlobal ["20Rnd_556x45_Stanag", 10];
-_crate addMagazineCargoGlobal ["75Rnd_545x39_RPK", 10];
+_crate addMagazineCargoGlobal ["17Rnd_9x19_glock17", 4];
+_crate addMagazineCargoGlobal ["30Rnd_9x19_UZI", 4];
+_crate addMagazineCargoGlobal ["30Rnd_762x39_AK47", 4];
+_crate addMagazineCargoGlobal ["30Rnd_762x39_SA58", 4];
+_crate addMagazineCargoGlobal ["30Rnd_556x45_G36", 4];
+_crate addMagazineCargoGlobal ["30Rnd_556x45_StanagSD", 4];
+_crate addMagazineCargoGlobal ["30Rnd_556x45_Stanag", 4];
+_crate addMagazineCargoGlobal ["20Rnd_556x45_Stanag", 4];
+_crate addMagazineCargoGlobal ["75Rnd_545x39_RPK", 2];
 
 // ITEMS
 _crate addWeaponCargoGlobal ["ItemToolbox", 2];

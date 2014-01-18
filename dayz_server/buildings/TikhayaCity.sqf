@@ -6502,10 +6502,10 @@
     _vehicle_1216 = objNull;
     if (true) then
     {
-      _this = createVehicle ["Land_Church_03", [1183.2203, 2529.7546, -1.335144e-005], [], 0, "CAN_COLLIDE"];
+      _this = createVehicle ["Land_Church_03", [1182.2203, 2528.7546, -1.335144e-005], [], 0, "CAN_COLLIDE"];
       _vehicle_1216 = _this;
       _this setDir -27.336424;
-      _this setPos [1183.2203, 2529.7546, -1.335144e-005];
+      _this setPos [1182.2203, 2528.7546, -1.335144e-005];
     };
      
     _vehicle_1217 = objNull;

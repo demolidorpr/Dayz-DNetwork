@@ -134,7 +134,7 @@ call compile preprocessfile "addons\SHK_pos\shk_pos_init.sqf";
 [] execVM "scripts\kh_actions.sqf"; 
 
 // Name Tags
-[] execVM "scripts\skaronametags.sqf";
+[] execVM "scripts\cpcnametags.sqf";
 
 // Churches
 [] execVM "scripts\hide_churches.sqf";

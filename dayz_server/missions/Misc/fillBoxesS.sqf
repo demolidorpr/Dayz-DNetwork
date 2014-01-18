@@ -18,15 +18,15 @@ _crate2 addWeaponCargoGlobal ["glock17_EP1", 1];
 _crate2 addWeaponCargoGlobal ["MakarovSD", 1];
 
 // AMMUNITION
-_crate2 addMagazineCargoGlobal ["17Rnd_9x19_glock17", 10];
-_crate2 addMagazineCargoGlobal ["8Rnd_9x18_MakarovSD", 10];
-_crate2 addMagazineCargoGlobal ["30Rnd_556x45_Stanag", 10];
-_crate2 addMagazineCargoGlobal ["75Rnd_545x39_RPK", 10];
-_crate2 addMagazineCargoGlobal ["10Rnd_762x54_SVD", 10];
+_crate2 addMagazineCargoGlobal ["17Rnd_9x19_glock17", 5];
+_crate2 addMagazineCargoGlobal ["8Rnd_9x18_MakarovSD", 5];
+_crate2 addMagazineCargoGlobal ["30Rnd_556x45_Stanag", 4];
+_crate2 addMagazineCargoGlobal ["75Rnd_545x39_RPK", 3];
+_crate2 addMagazineCargoGlobal ["10Rnd_762x54_SVD", 4];
 
 // ITEMS
-_crate2 addWeaponCargoGlobal ["ItemToolbox", 5];
-_crate2 addWeaponCargoGlobal ["ItemMatchbox", 5];
+_crate2 addWeaponCargoGlobal ["ItemToolbox", 2];
+_crate2 addWeaponCargoGlobal ["ItemMatchbox", 2];
 
 // BACKPACKS
 _crate2 addBackpackCargoGlobal ['DZ_LargeGunBag_EP1', 1];

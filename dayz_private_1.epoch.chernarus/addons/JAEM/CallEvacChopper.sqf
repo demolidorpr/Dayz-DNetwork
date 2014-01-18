@@ -144,6 +144,7 @@ _evacZoneWaypoint setWaypointCombatMode "BLUE";
 //Showing a Hint-Box with informations to the player
 //about the Evac-Chopper - Height - Speed - Distance
 while {sleep 0.5; alive player && !_routeFinished && alive evacChopper} do {
+	debugMonitor = false;
 	//Still on his way
 	if (!evacZoneReached) then {
 		_evacZoneDistance = format["%1m", round (evacChopper distance _evacZone)];
@@ -168,6 +169,8 @@ while {sleep 0.5; alive player && !_routeFinished && alive evacChopper} do {
 		(round ((position evacChopper) select 2)), (round (speed evacChopper)), _evacZoneDistance
 	];
 };
+
+[] spawn fnc_debug;
 
 //If Chopper got destroyed delete AI Pilot and his group
 //give a Hint to the player about the Crash

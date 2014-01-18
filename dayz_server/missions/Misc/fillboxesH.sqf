@@ -19,9 +19,9 @@ _crate3 addWeaponCargoGlobal ["MakarovSD", 2];
 
 
 // AMMUNITION
-_crate3 addMagazineCargoGlobal ["15Rnd_9x19_M9SD", 10];
-_crate3 addMagazineCargoGlobal ["8Rnd_9x18_MakarovSD", 10];
-_crate3 addMagazineCargoGlobal ["10Rnd_762x54_SVD", 10];
+_crate3 addMagazineCargoGlobal ["15Rnd_9x19_M9SD", 5];
+_crate3 addMagazineCargoGlobal ["8Rnd_9x18_MakarovSD", 5];
+_crate3 addMagazineCargoGlobal ["10Rnd_762x54_SVD", 5];
 _crate3 addMagazineCargoGlobal ["20Rnd_762x51_DMR", 5];
 
 
