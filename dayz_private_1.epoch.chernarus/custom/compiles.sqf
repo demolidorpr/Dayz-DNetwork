@@ -79,7 +79,7 @@ if (!isDedicated) then {
 	dog_findTargetAgent = 			compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\dog_findTargetAgent.sqf";
 	
 	// Vehicle damage fix
-	vehicle_handleDamage    = 		compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\vehicle_handleDamage.sqf";
+	vehicle_handleDamage    = 		compile preprocessFileLineNumbers "custom\vehicle_handleDamage.sqf";
 	vehicle_handleKilled    = 		compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\vehicle_handleKilled.sqf";
 
 	//actions
@@ -469,7 +469,7 @@ if (!isDedicated) then {
 	fnc_usec_damageHandler =		compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\fn_damageHandler.sqf";		//Event handler run on damage
 	fnc_veh_ResetEH = 			compile preprocessFileLineNumbers "\z\addons\dayz_code\init\veh_ResetEH.sqf";			//Initialize vehicle
 	// Vehicle damage fix
-	vehicle_handleDamage    = 		compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\vehicle_handleDamage.sqf";
+	vehicle_handleDamage    = 		compile preprocessFileLineNumbers "custom\vehicle_handleDamage.sqf";
 	vehicle_handleKilled    = 		compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\vehicle_handleKilled.sqf";
 	//fnc_vehicleEventHandler = 		compile preprocessFileLineNumbers "\z\addons\dayz_code\init\vehicle_init.sqf";			//Initialize vehicle
 	fnc_inString = 				compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\fn_inString.sqf";	
