@@ -22,7 +22,7 @@ fnc_debug = {
 					};
 					
 				hintSilent parseText format ["
-				<t size='1' font='Bitstream' align='Center' >[%19]</t><br/>
+				<t size='1' font='Bitstream' align='Center' >%19</t><br/>
 				<img size='4.75' image='%9' align='Center'/><br/>
 				<t size='1' font='Bitstream' align='left' color='#EEC900'>Location:</t><t size='1' font='Bitstream' align='right' color='#FFFAF0'>%11</t><br/>
 				<t size='1' font='Bitstream' align='center' color='#DDDDDD'></t><br/>
