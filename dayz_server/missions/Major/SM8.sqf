@@ -34,7 +34,7 @@ box = createVehicle ["USVehicleBox",[(_coords select 0) - 10, _coords select 1,0
 box2 = createVehicle ["USVehicleBox",[(_coords select 0) - 10, (_coords select 1) - 10,0],[], 0, "NONE"];
 
 [box] execVM "\z\addons\dayz_server\missions\misc\fillBoxes1.sqf";
-[box2] execVM "\z\addons\dayz_server\missions\misc\fillBoxes1.sqf";
+[box2] execVM "\z\addons\dayz_server\missions\misc\fillBoxes.sqf";
 
 
 _aispawn = [[(_coords select 0) + 2, _coords select 1,0],80,6,6,1] execVM "\z\addons\dayz_server\missions\add_unit_server4.sqf";//AI Guards
