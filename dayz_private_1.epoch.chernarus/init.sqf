@@ -55,7 +55,7 @@ DynamicVehicleFuelLow = 0;
 DynamicVehicleFuelHigh = 50;
 
 EpochEvents = [["any","any","any","any",30,"crash_spawner"],["any","any","any","any",0,"crash_spawner"],["any","any","any","any",15,"supply_drop"]];
-dayz_fullMoonNights = false;
+dayz_fullMoonNights = true;
 
 //Load in compiled functions
 call compile preprocessFileLineNumbers "custom\variables.sqf";				// \z\addons\dayz_code\init Initilize the Variables (IMPORTANT: Must happen very early)
