@@ -85,9 +85,15 @@ _key call server_hiveWrite;
 
 	// switch var to new vehicle at this point.
 	_object = _newobject;
+	clearWeaponCargoGlobal  _object;
+	clearMagazineCargoGlobal  _object;
+	clearBackpackCargoGlobal _object;
 
 	_object setDir _dir;
+	_location = [(_location) select 0, (_location) select 1, ((_location) select 2) + 0.2];
 	_object setPosATL _location;
+	sleep 0.1;
+	_object setVelocity [0,0,0.1];
 						
 	//Add weapons
 	_objWpnTypes = 	_weapons select 0;
