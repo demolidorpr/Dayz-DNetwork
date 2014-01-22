@@ -4,7 +4,6 @@ This is custom DayZ Epoch script pack for Chernarus only. Optimized for Nitrado 
 
 ### Modifications
 
-- Custom Loot Table (less loot spawn, very rare ammo spawn)
 - Animated Heli, AN2 Crash
 - Name Tags
 - Custom Menu for specific small admin scripts (tested with Infistar)
@@ -82,7 +81,6 @@ Feel free to support this pack by donating at http://server.nitrado.net/donation
 
 #### Modifications
 
-- http://epochmod.com/forum/index.php?/topic/1848-custom-loot-tables-via-missionconfigfile/
 - http://opendayz.net/threads/epoch-animated-heli-crashes.15051/
 - http://opendayz.net/threads/animated-c130-crashes-eventually-dropping-carepackages-at-way-points.12341/
 - http://opendayz.net/threads/release-name-tags-2-0-skaronator-version.14610/
