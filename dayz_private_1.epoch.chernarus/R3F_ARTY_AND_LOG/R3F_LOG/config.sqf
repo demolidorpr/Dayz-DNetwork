@@ -28,6 +28,7 @@
 R3F_LOG_CFG_remorqueurs =
 [
 	"ArmoredSUV_PMC",
+	"BTR40_TK_GUE_EP1",
 	"GAZ_Vodnik_DZE",
 	"GAZ_Vodnik_MedEvac",
 	"HMMWV_Ambulance",
@@ -41,6 +42,8 @@ R3F_LOG_CFG_remorqueurs =
 	"Ikarus_TK_CIV_EP1",
 	"Kamaz",
 	"KamazRefuel_DZ",
+	"M1133_MEV_EP1",
+	"M113Ambul_UN_EP1",
 	"MtvrRefuel_DES_EP1_DZ",
 	"MTVR_DES_EP1",
 	"tractor",
