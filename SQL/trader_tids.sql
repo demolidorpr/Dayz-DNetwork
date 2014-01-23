@@ -1,7 +1,3 @@
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
 --
 -- Daten für Tabelle `Trader_TIDS`
 --
@@ -601,7 +597,3 @@ INSERT INTO `Trader_TIDS` (`id`, `name`, `trader`) VALUES
 (690, 'Cooked Meats', 176),
 (691, 'Drinks', 176),
 (692, 'Packaged Food', 176);
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

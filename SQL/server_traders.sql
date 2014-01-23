@@ -1,13 +1,3 @@
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-
 --
 -- Daten für Tabelle `Server_TRADERS`
 --
@@ -189,7 +179,3 @@ INSERT INTO `Server_TRADERS` (`id`, `classname`, `instance`, `status`, `static`,
 (175, 'TK_CIV_Woman02_EP1', 17, 'neutral', '', 'General Store 4'),
 (176, 'Damsel3', 17, 'friendly', '', 'General Store 5'),
 (177, 'US_Delta_Force_Undercover_Takistani06_EP1', 17, 'neutral', '', '');
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

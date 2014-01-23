@@ -1,7 +1,3 @@
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
 --
 -- Daten für Tabelle `Traders_DATA`
 --
@@ -1441,7 +1437,3 @@ INSERT INTO `Traders_DATA` (`id`, `item`, `qty`, `buy`, `sell`, `order`, `tid`, 
 (1429, '["ItemComboLock",1]', 249, '[3,"ItemGoldBar10oz",1]', '[2,"ItemGoldBar10oz",1]', 0, 555, 'trade_items'),
 (1430, '["ItemComboLock",1]', 250, '[3,"ItemGoldBar10oz",1]', '[2,"ItemGoldBar10oz",1]', 0, 636, 'trade_items'),
 (1431, '["ItemComboLock",1]', 50, '[3,"ItemGoldBar10oz",1]', '[2,"ItemGoldBar10oz",1]', 0, 675, 'trade_items');
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
