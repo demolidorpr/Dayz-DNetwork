@@ -33,7 +33,7 @@ publicVariable "Ccoords";
 _base = ["land_fortified_nest_big","Land_Fort_Watchtower"] call BIS_fnc_selectRandom;
 baserunover = createVehicle [_base,[(_coords select 0) - 20, (_coords select 1) - 10,-0.2],[], 0, "NONE"];
 box = createVehicle ["USLaunchersBox",[(_coords select 0) + 2, (_coords select 1),0],[], 0, "NONE"];
-[BOX] execVM "\z\addons\dayz_server\missions\misc\fillConstructionMajor.sqf";
+[box] execVM "\z\addons\dayz_server\missions\misc\fillConstructionMajor.sqf";
 
 _aispawn = [_coords,20,3,6,1] execVM "\z\addons\dayz_server\missions\add_unit_server4.sqf";//AI Guards
 sleep 2;

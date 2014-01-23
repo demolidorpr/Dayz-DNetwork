@@ -101,6 +101,7 @@ switch _option do {
 					_object setPosATL _location;
 					
 					// ### [CPC] Indestructible Base Fix
+					_object enableSimulation false;
 					_object addEventHandler ["HandleDamage", {false}];
 
 					PVDZE_obj_Swap = [_objectCharacterID,_object,[_dir,_location],_classname,_obj,player];

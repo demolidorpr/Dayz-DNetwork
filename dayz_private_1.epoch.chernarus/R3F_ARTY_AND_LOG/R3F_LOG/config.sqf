@@ -320,7 +320,7 @@ R3F_LOG_CFG_objets_transportables =
 	["LandRover_MG_TK_EP1_DZE", 100],
 	["LandRover_Special_CZ_EP1_DZE", 100],
 	["LandRover_TK_CIV_EP1", 100],
-	["M1030_US_DES_EP1"", 25],
+	["M1030_US_DES_EP1", 25],
 	["MMT_Civ", 10],
 	["Offroad_DSHKM_Gue_DZE", 100],
 	["Old_bike_TK_INS_EP1", 10],

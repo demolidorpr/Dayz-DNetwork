@@ -3,6 +3,7 @@ clearWeaponCargoGlobal _crate;
 clearMagazineCargoGlobal _crate;
 
 _crate setVariable ["permaLoot",true];
+_crate setVariable ["Sarge",1,true];
 
 // RIFLES
 _crate addWeaponCargoGlobal ["G36A_camo", 1];
