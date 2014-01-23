@@ -67,6 +67,9 @@ _object setVariable ["ObjectUID", _uid,true];
 _object addMPEventHandler ["MPKilled",{_this call object_handleServerKilled;}];
 // Test disabling simulation server side on buildables only.
 _object enableSimulation false;
+// ### CPC Swap Object Fix
+_object addEventHandler ["HandleDamage", {false}];
+// ### CPC Swap Object Fix
 
 PVDZE_serverObjectMonitor set [count PVDZE_serverObjectMonitor,_object];
 
