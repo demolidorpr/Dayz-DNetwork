@@ -1,6 +1,6 @@
 //Medical Outpost by lazyink (Full credit for code to TheSzerdi & TAW_Tonic)
 
-private ["_coords","_wait","_MainMarker75"];
+private ["_missiontimeout","_cleanmission","_playerPresent","_starttime","_coords","_wait","_MainMarker75"];
 [] execVM "\z\addons\dayz_server\Missions\SMGoMinor.sqf";
 WaitUntil {MissionGoMinor == 1};
 
@@ -22,7 +22,7 @@ _baserunover2 = createVehicle ["MASH_EP1",[(_coords select 0) - 17, (_coords sel
 _baserunover3 = createVehicle ["MASH_EP1",[(_coords select 0) - 10, (_coords select 1) - 5,0],[], 0, "CAN_COLLIDE"];
 _baserunover4 = createVehicle ["UAZ_Unarmed_UN_EP1",[(_coords select 0) + 10, (_coords select 1) - 5,0],[], 0, "CAN_COLLIDE"];
 _baserunover5 = createVehicle ["HMMWV_DZ",[(_coords select 0) + 15, (_coords select 1) - 5,0],[], 0, "CAN_COLLIDE"];
-_baserunover6 = createVehicle ["SUV_DZ",[(_coords select 0) + 25, (_coords select 1) - 15,0],[], 0, "CAN_COLLIDE"];
+_baserunover6 = createVehicle ["SUV_TK_EP1",[(_coords select 0) + 25, (_coords select 1) - 15,0],[], 0, "CAN_COLLIDE"];
 
 _baserunover setVariable ["Sarge",1,true];
 _baserunover1 setVariable ["Sarge",1,true];
@@ -49,12 +49,43 @@ sleep 3;
 [[(_coords select 0) + 20, (_coords select 1) + 15,0],40,4,2,0] execVM "\z\addons\dayz_server\missions\add_unit_server2.sqf";//AI Guards
 sleep 3;
 
+_missiontimeout = true;
+_cleanmission = false;
+_playerPresent = false;
+_starttime = floor(time);
+while {_missiontimeout} do {
+	sleep 5;
+	_currenttime = floor(time);
+	{if((isPlayer _x) AND (_x distance _baserunover <= 250)) then {_playerPresent = true};}forEach playableUnits;
+	if (_currenttime - _starttime >= 3600) then {_cleanmission = true;};
+	if ((_playerPresent) OR (_cleanmission)) then {_missiontimeout = false;};
+};
 
-waitUntil{{isPlayer _x && _x distance _baserunover < 5  } count playableunits > 0}; 
+if (_playerPresent) then {
+	waitUntil{{isPlayer _x && _x distance _baserunover < 10 } count playableunits > 0}; 
 
-//Mission accomplished
-[nil,nil,rTitleText,"The Medical Outpost is under survivor control!", "PLAIN",6] call RE;
-[nil,nil,rGlobalRadio,"The Medical Outpost is under survivor control!"] call RE;
+	//Mission accomplished
+	[nil,nil,rTitleText,"The Medical Outpost is under survivor control!", "PLAIN",6] call RE;
+	[nil,nil,rGlobalRadio,"The Medical Outpost is under survivor control!"] call RE;
+	[_baserunover4 , typeOf _baserunover4] call server_updateObject;
+	[_baserunover5 , typeOf _baserunover5] call server_updateObject;
+	[_baserunover6 , typeOf _baserunover6] call server_updateObject;
+} else {
+	_baserunover4 setDamage 1.0;
+	_baserunover4 setVariable ["Sarge", nil, true];
+	_baserunover5 setDamage 1.0;
+	_baserunover5 setVariable ["Sarge", nil, true];
+	_baserunover6 setDamage 1.0;
+	_baserunover6 setVariable ["Sarge", nil, true];
+	deleteVehicle _baserunover;
+	deleteVehicle _baserunover1;
+	deleteVehicle _baserunover2;
+	deleteVehicle _baserunover3;
+	deleteVehicle _crate;
+	deleteVehicle _crate2;
+	[nil,nil,rTitleText,"The medical outpost exploded!", "PLAIN",6] call RE;
+	[nil,nil,rGlobalRadio,"The medical outpost exploded!"] call RE;
+};
 
 [] execVM "debug\remmarkers75.sqf";
 MissionGoMinor = 0;

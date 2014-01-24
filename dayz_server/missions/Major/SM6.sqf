@@ -1,6 +1,6 @@
 //Medical Crate by lazyink (Full credit for original code to TheSzerdi & TAW_Tonic)
 
-private ["_coords","_MainMarker","_wait"];
+private ["_missiontimeout","_cleanmission","_playerPresent","_starttime","_coords","_MainMarker","_wait"];
 [] execVM "\z\addons\dayz_server\Missions\SMGoMajor.sqf";
 
 WaitUntil {MissionGo == 1};
@@ -35,11 +35,36 @@ _aispawn = [_coords,80,6,6,1] execVM "\z\addons\dayz_server\missions\add_unit_se
 sleep 5;
 _aispawn = [_coords,40,4,4,1] execVM "\z\addons\dayz_server\missions\add_unit_server.sqf";//AI Guards
 
-waitUntil{{isPlayer _x && _x distance _hummer < 10  } count playableunits > 0}; 
+_missiontimeout = true;
+_cleanmission = false;
+_playerPresent = false;
+_starttime = floor(time);
+while {_missiontimeout} do {
+	sleep 5;
+	_currenttime = floor(time);
+	{if((isPlayer _x) AND (_x distance _crate <= 350)) then {_playerPresent = true};}forEach playableUnits;
+	if (_currenttime - _starttime >= 3600) then {_cleanmission = true;};
+	if ((_playerPresent) OR (_cleanmission)) then {_missiontimeout = false;};
+};
 
-//Mission accomplished
-[nil,nil,rTitleText,"The medical crate is under survivor control!", "PLAIN",6] call RE;
-[nil,nil,rGlobalRadio,"The medical crate is under survivor control!"] call RE;
+if (_playerPresent) then {
+	waitUntil{{isPlayer _x && _x distance _crate < 10  } count playableunits > 0}; 
+
+	//Mission accomplished
+	[nil,nil,rTitleText,"The medical crate is under survivor control!", "PLAIN",6] call RE;
+	[nil,nil,rGlobalRadio,"The medical crate is under survivor control!"] call RE;
+	[_hummer , typeOf _hummer] call server_updateObject;
+	[_hummer1 , typeOf _hummer1] call server_updateObject;
+} else {
+	_hummer setDamage 1.0;
+	_hummer setVariable ["Sarge", nil, true];
+	_hummer1 setDamage 1.0;
+	_hummer1 setVariable ["Sarge", nil, true];
+	deleteVehicle _crate;
+	deleteVehicle _crate2;
+	[nil,nil,rTitleText,"Bandits have moved the medical crate!", "PLAIN",6] call RE;
+	[nil,nil,rGlobalRadio,"Bandits have moved the medical crate!"] call RE;
+};
 
 [] execVM "debug\remmarkers.sqf";
 MissionGo = 0;

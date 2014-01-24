@@ -1,6 +1,6 @@
 //Bandit Hunting Party by lazyink (Full credit to TheSzerdi & TAW_Tonic for the code)
 
-private ["_coords","_wait","_MainMarker75"];
+private ["_missiontimeout","_cleanmission","_playerPresent","_starttime","_coords","_wait","_MainMarker75"];
 [] execVM "\z\addons\dayz_server\Missions\SMGoMinor.sqf";
 WaitUntil {MissionGoMinor == 1};
 
@@ -26,11 +26,31 @@ sleep 5;
 [_coords,80,4,2,1] execVM "\z\addons\dayz_server\missions\add_unit_server2.sqf";//AI Guards
 sleep 1;
 
-waitUntil{({alive _x} count (units SniperTeam)) < 1};
+_missiontimeout = true;
+_cleanmission = false;
+_playerPresent = false;
+_starttime = floor(time);
+while {_missiontimeout} do {
+	sleep 5;
+	_currenttime = floor(time);
+	{if((isPlayer _x) AND (_x distance _hummer <= 250)) then {_playerPresent = true};}forEach playableUnits;
+	if (_currenttime - _starttime >= 3600) then {_cleanmission = true;};
+	if ((_playerPresent) OR (_cleanmission)) then {_missiontimeout = false;};
+};
 
-//Mission accomplished
-[nil,nil,rTitleText,"The hunting party has been wiped out!", "PLAIN",6] call RE;
-[nil,nil,rGlobalRadio,"The hunting party has been wiped out!"] call RE;
+if (_playerPresent) then {
+	waitUntil{({alive _x} count (units SniperTeam)) < 1};
+
+	//Mission accomplished
+	[nil,nil,rTitleText,"The hunting party has been wiped out!", "PLAIN",6] call RE;
+	[nil,nil,rGlobalRadio,"The hunting party has been wiped out!"] call RE;
+	[_hummer , typeOf _hummer] call server_updateObject;
+} else {
+	_hummer setDamage 1.0;
+	_hummer setVariable ["Sarge", nil, true];
+	[nil,nil,rTitleText,"The party has finished the hunt!", "PLAIN",6] call RE;
+	[nil,nil,rGlobalRadio,"The party has finished the hunt!"] call RE;
+};
 
 [] execVM "debug\remmarkers75.sqf";
 MissionGoMinor = 0;

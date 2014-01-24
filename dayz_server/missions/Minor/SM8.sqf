@@ -1,7 +1,7 @@
 //Landing party sidemission Created by TheSzerdi Edited by Falcyn [QF]
 //Edited by Fuchs
 
-private ["_coord1","_coord2","_coord3","_coords","_wait","_dummymarker"];
+private ["_missiontimeout","_cleanmission","_playerPresent","_starttime","_coord1","_coord2","_coord3","_coords","_wait","_dummymarker"];
 [] execVM "\z\addons\dayz_server\Missions\SMGoMinor.sqf";
 WaitUntil {MissionGoMinor == 1};
 
@@ -21,39 +21,63 @@ MCoords = _coords select 1;
 publicVariable "MCoords";
 [] execVM "debug\addmarkers75.sqf";
 
-pbxride = createVehicle ["PBX",_coords select 0,[], 0, "NONE"];
-pbxride setVariable ["Sarge",1,true];
-pbxride setFuel 1;
+_pbxride = createVehicle ["PBX",_coords select 0,[], 0, "NONE"];
+_pbxride setVariable ["Sarge",1,true];
+_pbxride setFuel 1;
 
 [_coords select 0,4,1] execVM "\z\addons\dayz_server\missions\add_unit_server6.sqf";//AI Guards
 sleep 3;
-LandingParty addVehicle pbxride;
+LandingParty addVehicle _pbxride;
 LandingParty move (_coords select 1);
-waitUntil{(pbxride distance (_coords select 1)) < 50}; 
-tentloot = createVehicle ["TentStorage",_coords select 1,[], 0, "NONE"];
-tentloot setVariable ["Sarge",1,true];
+waitUntil{(_pbxride distance (_coords select 1)) < 50}; 
+_tent = createVehicle ["TentStorage",_coords select 1,[], 0, "NONE"];
+_tent setVariable ["Sarge",1,true];
 sleep 1;
 
-tentloot addWeaponCargoGlobal ["ItemCompass", 2];
-tentloot addWeaponCargoGlobal ["ItemGPS", 3];
-tentloot addWeaponCargoGlobal ["NVGoggles", 1];
-tentloot addMagazineCargoGlobal ["FoodCanBakedBeans", 4];
-tentloot addMagazineCargoGlobal ["ItemBandage", 4];
-tentloot addMagazineCargoGlobal ["ItemMorphine", 4];
-tentloot addMagazineCargoGlobal ["ItemPainkiller", 4];
-tentloot addMagazineCargoGlobal ["ItemAntibiotic", 2]
-tentloot addWeaponCargoGlobal ["ItemKnife", 2];
-tentloot addWeaponCargoGlobal ["ItemToolbox", 2];
-tentloot addWeaponCargoGlobal ["ItemMatches", 2];
-tentloot addMagazineCargoGlobal ["ItemBloodbag", 2];
-tentloot addMagazineCargoGlobal ["ItemJerryCan", 2];
-tentloot addMagazineCargoGlobal ["MP5A5", 2]
-tentloot addMagazineCargoGlobal ["30Rnd_9x19_MP5", 5]
-tentloot addMagazineCargoGlobal ["glock17_EP1", 2]
-tentloot addMagazineCargoGlobal ["17Rnd_9x19_glock17", 4]
+_tent addWeaponCargoGlobal ["ItemCompass", 2];
+_tent addWeaponCargoGlobal ["ItemGPS", 3];
+_tent addWeaponCargoGlobal ["NVGoggles", 1];
+_tent addMagazineCargoGlobal ["FoodCanBakedBeans", 4];
+_tent addMagazineCargoGlobal ["ItemBandage", 4];
+_tent addMagazineCargoGlobal ["ItemMorphine", 4];
+_tent addMagazineCargoGlobal ["ItemPainkiller", 4];
+_tent addMagazineCargoGlobal ["ItemAntibiotic", 2]
+_tent addWeaponCargoGlobal ["ItemKnife", 2];
+_tent addWeaponCargoGlobal ["ItemToolbox", 2];
+_tent addWeaponCargoGlobal ["ItemMatches", 2];
+_tent addMagazineCargoGlobal ["ItemBloodbag", 2];
+_tent addMagazineCargoGlobal ["ItemJerryCan", 2];
+_tent addMagazineCargoGlobal ["MP5A5", 2]
+_tent addMagazineCargoGlobal ["30Rnd_9x19_MP5", 5]
+_tent addMagazineCargoGlobal ["glock17_EP1", 2]
+_tent addMagazineCargoGlobal ["17Rnd_9x19_glock17", 4]
 
+_missiontimeout = true;
+_cleanmission = false;
+_playerPresent = false;
+_starttime = floor(time);
+while {_missiontimeout} do {
+	sleep 5;
+	_currenttime = floor(time);
+	{if((isPlayer _x) AND (_x distance _tent <= 250)) then {_playerPresent = true};}forEach playableUnits;
+	if (_currenttime - _starttime >= 3600) then {_cleanmission = true;};
+	if ((_playerPresent) OR (_cleanmission)) then {_missiontimeout = false;};
+};
 
-waitUntil{{isPlayer _x && _x distance tentloot < 10  } count playableunits > 0}; 
+if (_playerPresent) then {
+	waitUntil{{isPlayer _x && _x distance _tent < 10  } count playableunits > 0};
+
+	//Mission accomplished
+	[nil,nil,rTitleText,"You've secured the beachhead! Good work.", "PLAIN",6] call RE;
+	[nil,nil,rGlobalRadio,"You've secured the beachhead! Good work."] call RE;
+	[_pbxride , typeOf _pbxride] call server_updateObject;
+} else {
+	deleteVehicle _tent;
+	_pbxride setDamage 1.0;
+	_pbxride setVariable ["Sarge", nil, true];
+	[nil,nil,rTitleText,"The beachhead has been moved by bandits!", "PLAIN",6] call RE;
+	[nil,nil,rGlobalRadio,"The beachhead has been moved by bandits!"] call RE;
+};
 
 [] execVM "debug\remmarkers75.sqf";
 MissionGoMinor = 0;
@@ -61,10 +85,6 @@ MCoords = 0;
 publicVariable "MCoords";
 MissionGoNameMinor = "";
 publicVariable "MissionGoNameMinor"; 
-
-//Mission accomplished
-[nil,nil,rTitleText,"You've secured the beachhead! Good work.", "PLAIN",6] call RE;
-[nil,nil,rGlobalRadio,"You've secured the beachhead! Good work."] call RE;
 
 SM1 = 1;
 [0] execVM "\z\addons\dayz_server\missions\minor\SMfinder.sqf";

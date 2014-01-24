@@ -1,6 +1,6 @@
 //Medical Supply Camp by lazyink (Full credit for original code to TheSzerdi & TAW_Tonic)
 
-private ["_coords","_MainMarker","_base","_wait"];
+private ["_missiontimeout","_cleanmission","_playerPresent","_starttime","_coords","_MainMarker","_base","_wait"];
 [] execVM "\z\addons\dayz_server\Missions\SMGoMajor.sqf";
 
 WaitUntil {MissionGo == 1};
@@ -37,12 +37,35 @@ _aispawn = [_coords,40,4,3,1] execVM "\z\addons\dayz_server\missions\add_unit_se
 sleep 5;
 _aispawn = [_coords,40,4,3,1] execVM "\z\addons\dayz_server\missions\add_unit_server.sqf";//AI Guards
 
+_missiontimeout = true;
+_cleanmission = false;
+_playerPresent = false;
+_starttime = floor(time);
+while {_missiontimeout} do {
+	sleep 5;
+	_currenttime = floor(time);
+	{if((isPlayer _x) AND (_x distance _baserunover <= 350)) then {_playerPresent = true};}forEach playableUnits;
+	if (_currenttime - _starttime >= 3600) then {_cleanmission = true;};
+	if ((_playerPresent) OR (_cleanmission)) then {_missiontimeout = false;};
+};
 
-waitUntil{{isPlayer _x && _x distance _baserunover < 10  } count playableunits > 0}; 
+if (_playerPresent) then {
+	waitUntil{{isPlayer _x && _x distance _baserunover < 10  } count playableunits > 0}; 
 
-//Mission accomplished
-[nil,nil,rTitleText,"Survivors have taken control of the camp and medical supplies.", "PLAIN",6] call RE;
-[nil,nil,rGlobalRadio,"Survivors have taken control of the camp and medical supplies."] call RE;
+	//Mission accomplished
+	[nil,nil,rTitleText,"Survivors have taken control of the camp and medical supplies.", "PLAIN",6] call RE;
+	[nil,nil,rGlobalRadio,"Survivors have taken control of the camp and medical supplies."] call RE;
+	[_hummer , typeOf _hummer] call server_updateObject;
+} else {
+	_hummer setDamage 1.0;
+	_hummer setVariable ["Sarge", nil, true];
+	deleteVehicle _baserunover;
+	deleteVehicle _baserunover2;
+	deleteVehicle _crate;
+	deleteVehicle _crate2;
+	[nil,nil,rTitleText,"Bandits have moved their medical camp!", "PLAIN",6] call RE;
+	[nil,nil,rGlobalRadio,"Bandits have moved their medical camp!"] call RE;
+};
 
 [] execVM "debug\remmarkers.sqf";
 MissionGo = 0;

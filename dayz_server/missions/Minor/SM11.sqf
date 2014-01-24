@@ -1,6 +1,6 @@
 //Humvee wreck Mission Created by TheSzerdi Edited by Falcyn [QF]
 
-private ["_coords","_itemType","_itemChance","_weights","_index","_iArray","_num","_nearby","_checking","_people","_wait","_dummymarker"];
+private ["_missiontimeout","_cleanmission","_playerPresent","_starttime","_coords","_itemType","_itemChance","_weights","_index","_iArray","_num","_nearby","_checking","_people","_wait","_dummymarker"];
 [] execVM "\z\addons\dayz_server\Missions\SMGoMinor.sqf";
 WaitUntil {MissionGoMinor == 1};
 
@@ -16,8 +16,8 @@ MCoords = _coords;
 publicVariable "MCoords";
 [] execVM "debug\addmarkers75.sqf";
 
-humveecrash = createVehicle ["HMMWVwreck",_coords,[], 0, "CAN_COLLIDE"];
-humveecrash setVariable ["Sarge",1,true];
+_humveecrash = createVehicle ["HMMWVwreck",_coords,[], 0, "CAN_COLLIDE"];
+_humveecrash setVariable ["Sarge",1,true];
 
 [_coords,40,4,3,1] execVM "\z\addons\dayz_server\missions\add_unit_server4.sqf";//AI Guards
 sleep 1;
@@ -51,16 +51,34 @@ if (isDedicated) then {
 	};
 };
 
-_checking = 1;
-while {_checking == 1} do {
-_people =  nearestObjects [_coords,["Man"],20];
-if ({isPlayer _x} count _people > 0) then {_checking = 0};
-sleep 1;
+_missiontimeout = true;
+_cleanmission = false;
+_playerPresent = false;
+_starttime = floor(time);
+while {_missiontimeout} do {
+	sleep 5;
+	_currenttime = floor(time);
+	{if((isPlayer _x) AND (_x distance _humveecrash <= 250)) then {_playerPresent = true};}forEach playableUnits;
+	if (_currenttime - _starttime >= 3600) then {_cleanmission = true;};
+	if ((_playerPresent) OR (_cleanmission)) then {_missiontimeout = false;};
 };
 
-//Mission accomplished
-[nil,nil,rTitleText,"Good work you've secured the crash site!", "PLAIN",6] call RE;
-[nil,nil,rGlobalRadio,"Good work you've secured the crash site!"] call RE;
+if (_playerPresent) then {
+	_checking = 1;
+	while {_checking == 1} do {
+	_people =  nearestObjects [_coords,["Man"],20];
+	if ({isPlayer _x} count _people > 0) then {_checking = 0};
+	sleep 1;
+	};
+
+	//Mission accomplished
+	[nil,nil,rTitleText,"Good work you've secured the crash site!", "PLAIN",6] call RE;
+	[nil,nil,rGlobalRadio,"Good work you've secured the crash site!"] call RE;
+} else {
+	deleteVehicle _humveecrash;
+	[nil,nil,rTitleText,"Survivors have secured the loot!", "PLAIN",6] call RE;
+	[nil,nil,rGlobalRadio,"Survivors have secured the loot!"] call RE;
+};
 
 [] execVM "debug\remmarkers75.sqf";
 MissionGoMinor = 0;

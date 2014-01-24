@@ -1,6 +1,6 @@
 //Hillbilly mission  Created by TheSzerdi Edited by Falcyn [QF]
 
-private ["_coords","_iArray","_nearby","_index","_num","_itemType","_itemChance","_weights","_wait","_dummymarker"];
+private ["_missiontimeout","_cleanmission","_playerPresent","_starttime","_coords","_iArray","_nearby","_index","_num","_itemType","_itemChance","_weights","_wait","_dummymarker"];
 [] execVM "\z\addons\dayz_server\Missions\SMGoMinor.sqf";
 WaitUntil {MissionGoMinor == 1};
 publicVariable "MissionGoMinor";
@@ -17,9 +17,9 @@ MCoords = _coords;
 publicVariable "MCoords";
 [] execVM "debug\addmarkers75.sqf";
 
-baserunover = createVehicle ["land_housev_1i4",[(_coords select 0) +2, (_coords select 1)+5,-0.3],[], 0, "CAN_COLLIDE"];
-baserunover2 = createVehicle ["land_kbud",[(_coords select 0) - 10, (_coords select 1) - 5,0],[], 0, "CAN_COLLIDE"];
-baserunover3 = createVehicle ["land_kbud",[(_coords select 0) - 7, (_coords select 1) - 5,0],[], 0, "CAN_COLLIDE"];
+_baserunover = createVehicle ["land_housev_1i4",[(_coords select 0) +2, (_coords select 1)+5,-0.3],[], 0, "CAN_COLLIDE"];
+_baserunover2 = createVehicle ["land_kbud",[(_coords select 0) - 10, (_coords select 1) - 5,0],[], 0, "CAN_COLLIDE"];
+_baserunover3 = createVehicle ["land_kbud",[(_coords select 0) - 7, (_coords select 1) - 5,0],[], 0, "CAN_COLLIDE"];
 
 [[(_coords select 0) - 20, (_coords select 1) - 15,0],40,4,2,0] execVM "\z\addons\dayz_server\missions\add_unit_server5.sqf";//AI Guards
 sleep 3;
@@ -57,11 +57,31 @@ if (isDedicated) then {
 
 [] execVM "debug\hillbilly.sqf";
 
-waitUntil{{isPlayer _x && _x distance baserunover < 20  } count playableunits > 0}; 
+_missiontimeout = true;
+_cleanmission = false;
+_playerPresent = false;
+_starttime = floor(time);
+while {_missiontimeout} do {
+	sleep 5;
+	_currenttime = floor(time);
+	{if((isPlayer _x) AND (_x distance _baserunover <= 250)) then {_playerPresent = true};}forEach playableUnits;
+	if (_currenttime - _starttime >= 3600) then {_cleanmission = true;};
+	if ((_playerPresent) OR (_cleanmission)) then {_missiontimeout = false;};
+};
 
-//Mission accomplished
-[nil,nil,rTitleText,"You survived the rape attempt! Loot their corpses!", "PLAIN",6] call RE;
-[nil,nil,rGlobalRadio,"You survived the rape attempt! Loot their corpses!"] call RE;
+if (_playerPresent) then {
+	waitUntil{{isPlayer _x && _x distance _baserunover < 20  } count playableunits > 0}; 
+
+	//Mission accomplished
+	[nil,nil,rTitleText,"You survived the rape attempt! Loot their corpses!", "PLAIN",6] call RE;
+	[nil,nil,rGlobalRadio,"You survived the rape attempt! Loot their corpses!"] call RE;
+} else {
+	deleteVehicle _baserunover;
+	deleteVehicle _baserunover2;
+	deleteVehicle _baserunover3;
+	[nil,nil,rTitleText,"Hillbillies left the area!", "PLAIN",6] call RE;
+	[nil,nil,rGlobalRadio,"Hillbillies left the area!"] call RE;
+};
 
 [] execVM "debug\remmarkers75.sqf";
 MissionGoMinor = 0;

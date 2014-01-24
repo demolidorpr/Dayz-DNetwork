@@ -1,7 +1,7 @@
 //Firebase mission Created by TheSzerdi Edited by Falcyn [QF]
 //Modified by Mimic for Epoch Mission System
 
-private ["_coords","_dummymarker","_base","_wait","_coord1","_coord2","_coord3","_coord4","_coord5","_coord6","_coord7","_coord8","_coord9","_coord10","_coord11","_coord12"];
+private ["_missiontimeout","_cleanmission","_playerPresent","_starttime","_coords","_dummymarker","_base","_wait","_coord1","_coord2","_coord3","_coord4","_coord5","_coord6","_coord7","_coord8","_coord9","_coord10","_coord11","_coord12"];
 [] execVM "\z\addons\dayz_server\Missions\SMGoMajor.sqf";
 WaitUntil {MissionGo == 1};
 
@@ -31,9 +31,9 @@ publicVariable "Ccoords";
 [] execVM "debug\addmarkers.sqf";
 
 _base = ["land_fortified_nest_big","Land_Fort_Watchtower"] call BIS_fnc_selectRandom;
-baserunover = createVehicle [_base,[(_coords select 0) - 20, (_coords select 1) - 10,-0.2],[], 0, "NONE"];
-box = createVehicle ["USLaunchersBox",[(_coords select 0) + 2, (_coords select 1),0],[], 0, "NONE"];
-[box] execVM "\z\addons\dayz_server\missions\misc\fillConstructionMajor.sqf";
+_baserunover = createVehicle [_base,[(_coords select 0) - 20, (_coords select 1) - 10,-0.2],[], 0, "NONE"];
+_crate = createVehicle ["USLaunchersBox",[(_coords select 0) + 2, (_coords select 1),0],[], 0, "NONE"];
+[_crate] execVM "\z\addons\dayz_server\missions\misc\fillConstructionMajor.sqf";
 
 _aispawn = [_coords,20,3,6,1] execVM "\z\addons\dayz_server\missions\add_unit_server4.sqf";//AI Guards
 sleep 2;
@@ -43,11 +43,31 @@ _aispawn = [_coords,60,4,6,1] execVM "\z\addons\dayz_server\missions\add_unit_se
 sleep 2;
 _aispawn = [_coords,80,6,6,1] execVM "\z\addons\dayz_server\missions\add_unit_server4.sqf";//AI Guards
 
-waitUntil{{isPlayer _x && _x distance baserunover < 20  } count playableunits > 0}; 
+_missiontimeout = true;
+_cleanmission = false;
+_playerPresent = false;
+_starttime = floor(time);
+while {_missiontimeout} do {
+	sleep 5;
+	_currenttime = floor(time);
+	{if((isPlayer _x) AND (_x distance _baserunover <= 350)) then {_playerPresent = true};}forEach playableUnits;
+	if (_currenttime - _starttime >= 3600) then {_cleanmission = true;};
+	if ((_playerPresent) OR (_cleanmission)) then {_missiontimeout = false;};
+};
 
-//Mission accomplished
-[nil,nil,rTitleText,"Survivors have secured the construction materials.", "PLAIN",6] call RE;
-[nil,nil,rGlobalRadio,"Survivors have secured the construction materials."] call RE;
+if (_playerPresent) then {
+	waitUntil{{isPlayer _x && _x distance _baserunover < 20  } count playableunits > 0}; 
+
+	//Mission accomplished
+	[nil,nil,rTitleText,"Survivors have secured the construction materials.", "PLAIN",6] call RE;
+	[nil,nil,rGlobalRadio,"Survivors have secured the construction materials."] call RE;
+} else {
+	deleteVehicle _baserunover;
+	deleteVehicle _base;
+	deleteVehicle _crate;
+	[nil,nil,rTitleText,"Bandits have aborted their firebase!", "PLAIN",6] call RE;
+	[nil,nil,rGlobalRadio,"Bandits have aborted their firebase!"] call RE;
+};
 
 [] execVM "debug\remmarkers.sqf";
 MissionGo = 0;

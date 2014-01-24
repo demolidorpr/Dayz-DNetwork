@@ -1,6 +1,6 @@
 //Hummer Wreck by lazyink (Full credit for code to TheSzerdi & TAW_Tonic)
 
-private ["_coords","_wait","_MainMarker75"];
+private ["_missiontimeout","_cleanmission","_playerPresent","_starttime","_coords","_wait","_MainMarker75"];
 [] execVM "\z\addons\dayz_server\Missions\SMGoMinor.sqf";
 WaitUntil {MissionGoMinor == 1};
 
@@ -27,11 +27,30 @@ sleep 1;
 [_coords,40,4,3,1] execVM "\z\addons\dayz_server\missions\add_unit_server.sqf";//AI Guards
 sleep 1;
 
-waitUntil{{isPlayer _x && _x distance _humveecrash < 5  } count playableunits > 0}; 
+_missiontimeout = true;
+_cleanmission = false;
+_playerPresent = false;
+_starttime = floor(time);
+while {_missiontimeout} do {
+	sleep 5;
+	_currenttime = floor(time);
+	{if((isPlayer _x) AND (_x distance _humveecrash <= 250)) then {_playerPresent = true};}forEach playableUnits;
+	if (_currenttime - _starttime >= 3600) then {_cleanmission = true;};
+	if ((_playerPresent) OR (_cleanmission)) then {_missiontimeout = false;};
+};
 
-//Mission accomplished
-[nil,nil,rTitleText,"The crash site has been secured by survivors!", "PLAIN",6] call RE;
-[nil,nil,rGlobalRadio,"The crash site has been secured by survivors!"] call RE;
+if (_playerPresent) then {
+	waitUntil{{isPlayer _x && _x distance _humveecrash < 5  } count playableunits > 0}; 
+
+	//Mission accomplished
+	[nil,nil,rTitleText,"The crash site has been secured by survivors!", "PLAIN",6] call RE;
+	[nil,nil,rGlobalRadio,"The crash site has been secured by survivors!"] call RE;
+} else {
+	deleteVehicle _humveecrash;
+	deleteVehicle _crate3;
+	[nil,nil,rTitleText,"The crash site has been secured by bandits!", "PLAIN",6] call RE;
+	[nil,nil,rGlobalRadio,"The crash site has been secured by bandits!"] call RE;
+};
 
 [] execVM "debug\remmarkers75.sqf";
 MissionGoMinor = 0;

@@ -1,6 +1,6 @@
 //Aircraft crash sidemission Created by TheSzerdi Edited by Falcyn [QF]
 
-private ["_coords","_dummymarker","_wait","_coord1","_coord2","_coord3","_coord4","_coord5","_coord6","_coord7","_coord8","_coord9","_coord10","_coord11","_coord12"];
+private ["_missiontimeout","_cleanmission","_playerPresent","_starttime","_coords","_dummymarker","_wait","_coord1","_coord2","_coord3","_coord4","_coord5","_coord6","_coord7","_coord8","_coord9","_coord10","_coord11","_coord12"];
 [] execVM "\z\addons\dayz_server\Missions\SMGoMajor.sqf";
 WaitUntil {MissionGo == 1};
 
@@ -29,12 +29,12 @@ Ccoords = _coords;
 publicVariable "Ccoords";
 [] execVM "debug\addmarkers.sqf";
 
-c130wreck = createVehicle ["C130J_wreck_EP1",[(_coords select 0) + 30, (_coords select 1) - 5,0],[], 0, "NONE"];
-box = createVehicle ["USVehicleBox",[(_coords select 0) - 10, _coords select 1,0],[], 0, "NONE"];
-box2 = createVehicle ["USVehicleBox",[(_coords select 0) - 10, (_coords select 1) - 10,0],[], 0, "NONE"];
+_c130wreck = createVehicle ["C130J_wreck_EP1",[(_coords select 0) + 30, (_coords select 1) - 5,0],[], 0, "NONE"];
+_crate = createVehicle ["USVehicleBox",[(_coords select 0) - 10, _coords select 1,0],[], 0, "NONE"];
+_crate2 = createVehicle ["USVehicleBox",[(_coords select 0) - 10, (_coords select 1) - 10,0],[], 0, "NONE"];
 
-[box] execVM "\z\addons\dayz_server\missions\misc\fillBoxes1.sqf";
-[box2] execVM "\z\addons\dayz_server\missions\misc\fillBoxes.sqf";
+[_crate] execVM "\z\addons\dayz_server\missions\misc\fillBoxes1.sqf";
+[_crate2] execVM "\z\addons\dayz_server\missions\misc\fillBoxes.sqf";
 
 
 _aispawn = [[(_coords select 0) + 2, _coords select 1,0],80,6,6,1] execVM "\z\addons\dayz_server\missions\add_unit_server4.sqf";//AI Guards
@@ -45,9 +45,31 @@ _aispawn = [[(_coords select 0) + 2, _coords select 1,0],40,4,4,1] execVM "\z\ad
 sleep 5;
 _aispawn = [[(_coords select 0) + 2, _coords select 1,0],40,4,4,1] execVM "\z\addons\dayz_server\missions\add_unit_server4.sqf";//AI Guards
 
+_missiontimeout = true;
+_cleanmission = false;
+_playerPresent = false;
+_starttime = floor(time);
+while {_missiontimeout} do {
+	sleep 5;
+	_currenttime = floor(time);
+	{if((isPlayer _x) AND (_x distance _crate <= 350)) then {_playerPresent = true};}forEach playableUnits;
+	if (_currenttime - _starttime >= 3600) then {_cleanmission = true;};
+	if ((_playerPresent) OR (_cleanmission)) then {_missiontimeout = false;};
+};
 
+if (_playerPresent) then {
+	waitUntil{{isPlayer _x && _x distance _crate < 10  } count playableunits > 0}; 
 
-waitUntil{{isPlayer _x && _x distance c130wreck < 60  } count playableunits > 0}; 
+	//Mission accomplished
+	[nil,nil,rTitleText,"You've secured the crash site! Good work.", "PLAIN",6] call RE;
+	[nil,nil,rGlobalRadio,"You've secured the crash site! Good work."] call RE;
+} else {
+	deleteVehicle _c130wreck;
+	deleteVehicle _crate;
+	deleteVehicle _crate2;
+	[nil,nil,rTitleText,"Bandits have cleared the crash site!", "PLAIN",6] call RE;
+	[nil,nil,rGlobalRadio,"Bandits have cleared the crash site!"] call RE;
+};
 
 [] execVM "debug\remmarkers.sqf";
 MissionGo = 0;
@@ -55,10 +77,6 @@ Ccoords = 0;
 publicVariable "Ccoords";
 MissionGoName = "";
 publicVariable "MissionGoName"; 
-
-//Mission accomplished
-[nil,nil,rTitleText,"You've secured the crash site! Good work.", "PLAIN",6] call RE;
-[nil,nil,rGlobalRadio,"You've secured the crash site! Good work."] call RE;
 
 SM1 = 1;
 [0] execVM "\z\addons\dayz_server\missions\major\SMfinder.sqf";

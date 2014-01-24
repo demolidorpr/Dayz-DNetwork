@@ -1,6 +1,6 @@
 //Axe murderer script Created by TheSzerdi Edited by Falcyn [QF]
 
-private ["_coords","_wait","_dummymarker","_grouparray","_group"];
+private ["_missiontimeout","_cleanmission","_playerPresent","_starttime","_coords","_wait","_dummymarker","_grouparray","_group"];
 [] execVM "\z\addons\dayz_server\Missions\SMGoMinor.sqf";
 WaitUntil {MissionGoMinor == 1};
 
@@ -18,11 +18,29 @@ publicVariable "MCoords";
 
 [_coords,80,4,1,2] execVM "\z\addons\dayz_server\Missions\add_unit_server5.sqf";//AI Guards
 sleep 1;
-waitUntil{({alive _x} count (units AxeMurderer)) < 1};
 
-//Mission accomplished
-[nil,nil,rTitleText,"Finally! He died! Check the body for medical supplies!", "PLAIN",6] call RE;
-[nil,nil,rGlobalRadio,"Finally! He died! Check the body for medical supplies!"] call RE;
+_missiontimeout = true;
+_cleanmission = false;
+_playerPresent = false;
+_starttime = floor(time);
+while {_missiontimeout} do {
+	sleep 5;
+	_currenttime = floor(time);
+	{if((isPlayer _x) AND (_x distance _coords <= 250)) then {_playerPresent = true};}forEach playableUnits;
+	if (_currenttime - _starttime >= 3600) then {_cleanmission = true;};
+	if ((_playerPresent) OR (_cleanmission)) then {_missiontimeout = false;};
+};
+
+if (_playerPresent) then {
+	waitUntil{({alive _x} count (units AxeMurderer)) < 1};
+
+	//Mission accomplished
+	[nil,nil,rTitleText,"Finally! He died! Check the body for medical supplies!", "PLAIN",6] call RE;
+	[nil,nil,rGlobalRadio,"Finally! He died! Check the body for medical supplies!"] call RE;
+} else {
+	[nil,nil,rTitleText,"The axe murderer has escaped!", "PLAIN",6] call RE;
+	[nil,nil,rGlobalRadio,"The axe murderer has escaped!"] call RE;
+};
 
 [] execVM "debug\remmarkers75.sqf";
 MissionGoMinor = 0;
