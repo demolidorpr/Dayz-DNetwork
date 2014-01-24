@@ -64,8 +64,6 @@ R3F_LOG_CFG_objets_remorquables =
 [
 	"ArmoredSUV_PMC_DZE",
 	"ArmoredSUV_PMC",
-	"ATV_CZ_EP1",
-	"ATV_US_EP1",
 	"car_hatchback",
 	"car_sedan",
 	"datsun1_civil_1_open",
@@ -139,7 +137,6 @@ R3F_LOG_CFG_objets_remorquables =
  */
 R3F_LOG_CFG_heliporteurs =
 [
-	"AH6X_DZ",
 	"BAF_Merlin_HC3_D",
 	"CH_47F_EP1_DZE",
 	"MH6J_DZ",
@@ -158,8 +155,6 @@ R3F_LOG_CFG_objets_heliportables =
 [
 	"ArmoredSUV_PMC_DZE",
 	"ArmoredSUV_PMC",
-	"ATV_CZ_EP1",
-	"ATV_US_EP1",
 	"car_hatchback",
 	"car_sedan",
 	"datsun1_civil_1_open",
