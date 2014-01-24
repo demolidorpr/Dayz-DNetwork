@@ -1341,7 +1341,7 @@ class Groups
 		};
 		class Item10
 		{
-			position[]={1146.8905,9.5063992,2676.7671};
+			position[]={1100.26,10.213919,2854.37};
 			name="boatsnwholesale_1";
 			text="Wholesaler";
 			type="mil_dot";
@@ -1407,7 +1407,7 @@ class Groups
 			interruptable=1;
 			age="UNKNOWN";
 			name="zonebash";
-			expCond="(player distance zonebash) < 100;";
+			expCond="(player distance zonebash) < 75;";
 			expActiv="TitleText[""Now entering trader city Bash"",""PLAIN DOWN""]; canbuild = false;";
 			expDesactiv="TitleText[""Now leaving trader city Bash"",""PLAIN DOWN""]; canbuild = true;";
 			class Effects
@@ -1422,7 +1422,7 @@ class Groups
 			interruptable=1;
 			age="UNKNOWN";
 			name="zoneklen";
-			expCond="(player distance zoneklen) < 100;";
+			expCond="(player distance zoneklen) < 50;";
 			expActiv="TitleText[""Now entering trader city Klen"",""PLAIN DOWN""]; canbuild = false;";
 			expDesactiv="TitleText[""Now leaving trader city Klen"",""PLAIN DOWN""]; canbuild = true;";
 			class Effects
@@ -1439,7 +1439,7 @@ class Groups
 			interruptable=1;
 			age="UNKNOWN";
 			name="zonestary";
-			expCond="(player distance zonestary) < 100;";
+			expCond="(player distance zonestary) < 80;";
 			expActiv="TitleText[""Now entering trader city Stary"",""PLAIN DOWN""]; canbuild = false;";
 			expDesactiv="TitleText[""Now leaving trader city Stary"",""PLAIN DOWN""]; canbuild = true;";
 			class Effects
@@ -1454,7 +1454,7 @@ class Groups
 			interruptable=1;
 			age="UNKNOWN";
 			name="zoneair";
-			expCond="(player distance zoneair) < 100;";
+			expCond="(player distance zoneair) < 75;";
 			expActiv="TitleText[""Now entering trader airfield"",""PLAIN DOWN""]; canbuild = false;";
 			expDesactiv="TitleText[""Now leaving trader airfield"",""PLAIN DOWN""]; canbuild = true;";
 			class Effects
@@ -1469,7 +1469,7 @@ class Groups
 			interruptable=1;
 			age="UNKNOWN";
 			name="zonehero";
-			expCond="(player distance zonehero) < 100;";
+			expCond="(player distance zonehero) < 50;";
 			expActiv="TitleText[""Now entering trader hero"",""PLAIN DOWN""]; canbuild = false;";
 			expDesactiv="TitleText[""Now leaving trader hero"",""PLAIN DOWN""]; canbuild = true;";
 			class Effects
@@ -1484,7 +1484,7 @@ class Groups
 			interruptable=1;
 			age="UNKNOWN";
 			name="zoneholz";
-			expCond="(player distance zoneholz) < 100;";
+			expCond="(player distance zoneholz) < 50;";
 			expActiv="TitleText[""Now entering trader wood"",""PLAIN DOWN""]; canbuild = false;";
 			expDesactiv="TitleText[""Now leaving trader wood"",""PLAIN DOWN""]; canbuild = true;";
 			class Effects
@@ -1493,7 +1493,7 @@ class Groups
 		};
 		class Item6
 		{
-			position[]={1136.2819,10.213919,2706.2173};
+			position[]={1100.26,10.213919,2854.37};
 			a=100;
 			b=100;
 			activationBy="WEST";
@@ -1501,7 +1501,7 @@ class Groups
 			interruptable=1;
 			age="UNKNOWN";
 			name="zonewhole";
-			expCond="(player distance zonewhole) < 100;";
+			expCond="(player distance zonewhole) < 50;";
 			expActiv="TitleText[""Now entering trader whole"",""PLAIN DOWN""]; canbuild = false;";
 			expDesactiv="TitleText[""Now leaving trader whole"",""PLAIN DOWN""]; canbuild = true;";
 			class Effects
@@ -1516,7 +1516,7 @@ class Groups
 			interruptable=1;
 			age="UNKNOWN";
 			name="zonewholew";
-			expCond="(player distance zonewholew) < 100;";
+			expCond="(player distance zonewholew) < 50;";
 			expActiv="TitleText[""Now entering trader whole"",""PLAIN DOWN""]; canbuild = false;";
 			expDesactiv="TitleText[""Now leaving trader whole"",""PLAIN DOWN""]; canbuild = true;";
 			class Effects
@@ -1531,7 +1531,7 @@ class Groups
 			interruptable=1;
 			age="UNKNOWN";
 			name="zonebandit";
-			expCond="(player distance zonebandit) < 100;";
+			expCond="(player distance zonebandit) < 50;";
 			expActiv="TitleText[""Now entering trader bandit"",""PLAIN DOWN""]; canbuild = false;";
 			expDesactiv="TitleText[""Now leaving trader bandit"",""PLAIN DOWN""]; canbuild = true;";
 			class Effects
@@ -1546,7 +1546,7 @@ class Groups
 			interruptable=1;
 			age="UNKNOWN";
 			name="zoneextra";
-			expCond="(player distance zoneextra) < 100;";
+			expCond="(player distance zoneextra) < 25;";
 			expActiv="TitleText[""Now entering trader vehicle"",""PLAIN DOWN""]; canbuild = false;";
 			expDesactiv="TitleText[""Now leaving trader vehicle"",""PLAIN DOWN""]; canbuild = true;";
 			class Effects
