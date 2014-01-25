@@ -226,7 +226,7 @@ if (_hasrequireditem) then {
 
 	cutText [(localize "str_epoch_player_45"), "PLAIN DOWN"];
 
-	_previewCounter = 60;
+	_previewCounter = 120;
 	
 	player allowDamage false;
 	SnappingOffset = _offset;
