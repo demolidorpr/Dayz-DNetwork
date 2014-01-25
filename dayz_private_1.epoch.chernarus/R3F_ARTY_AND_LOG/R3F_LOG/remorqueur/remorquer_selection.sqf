@@ -72,7 +72,7 @@ else
 					_objet attachTo [_remorqueur, [
 					0,
 					(boundingBox _remorqueur select 0 select 1)*remorqOffset + (boundingBox _objet select 0 select 1)*objetOffset, //+ 1.2
-					(boundingBox _remorqueur select 0 select 2) - (boundingBox _objet select 0 select 2)
+					(boundingBox _remorqueur select 0 select 2) - (boundingBox _objet select 0 select 2) + 0.1
 					]];
 					
 					R3F_LOG_objet_selectionne = objNull;
