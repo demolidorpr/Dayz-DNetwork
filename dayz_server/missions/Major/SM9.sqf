@@ -30,7 +30,7 @@ Ccoords = _coords;
 publicVariable "Ccoords";
 [] execVM "debug\addmarkers.sqf";
 
-_base = ["land_fortified_nest_big","Land_Fort_Watchtower"] call BIS_fnc_selectRandom;
+_base = ["Land_fortified_nest_big","Land_Fort_Watchtower_EP1"] call BIS_fnc_selectRandom;
 _baserunover = createVehicle [_base,[(_coords select 0) - 20, (_coords select 1) - 10,-0.2],[], 0, "NONE"];
 _crate = createVehicle ["USLaunchersBox",[(_coords select 0) + 2, (_coords select 1),0],[], 0, "NONE"];
 [_crate] execVM "\z\addons\dayz_server\missions\misc\fillConstructionMajor.sqf";
@@ -50,13 +50,13 @@ _starttime = floor(time);
 while {_missiontimeout} do {
 	sleep 5;
 	_currenttime = floor(time);
-	{if((isPlayer _x) AND (_x distance _baserunover <= 350)) then {_playerPresent = true};}forEach playableUnits;
+	{if((isPlayer _x) AND (_x distance _crate <= 350)) then {_playerPresent = true};}forEach playableUnits;
 	if (_currenttime - _starttime >= 3600) then {_cleanmission = true;};
 	if ((_playerPresent) OR (_cleanmission)) then {_missiontimeout = false;};
 };
 
 if (_playerPresent) then {
-	waitUntil{{isPlayer _x && _x distance _baserunover < 20  } count playableunits > 0}; 
+	waitUntil{{isPlayer _x && _x distance _crate < 10  } count playableunits > 0}; 
 
 	//Mission accomplished
 	[nil,nil,rTitleText,"Survivors have secured the construction materials.", "PLAIN",6] call RE;
