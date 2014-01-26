@@ -50,7 +50,7 @@ else
 							};
 						};
 						
-						if (_ne_remorque_pas) then
+						if (_ne_remorque_pas && (terrainIntersect [getPosATL _heliporteur, getPosATL _objet])) then
 						{
 							// On mémorise sur le réseau que l'héliporteur remorque quelque chose
 							_heliporteur setVariable ["R3F_LOG_heliporte", _objet, true];
