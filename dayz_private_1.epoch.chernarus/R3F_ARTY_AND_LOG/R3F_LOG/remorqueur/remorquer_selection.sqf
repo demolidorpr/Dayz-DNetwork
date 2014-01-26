@@ -12,7 +12,7 @@
 
 if (R3F_LOG_mutex_local_verrou) then
 {
-	player globalChat STR_R3F_LOG_mutex_action_en_cours;
+	systemChat STR_R3F_LOG_mutex_action_en_cours;
 }
 else
 {
@@ -106,17 +106,17 @@ else
 					
 					sleep 5;    
                 } else {
-                	player globalChat "You can't tow more than one vehicle.";    
+                	systemChat "You can't tow more than one vehicle.";    
                 };
 			}
 			else
 			{
-				player globalChat format [STR_R3F_LOG_action_remorquer_selection_trop_loin, getText (configFile >> "CfgVehicles" >> (typeOf _objet) >> "displayName")];
+				systemChat format [STR_R3F_LOG_action_remorquer_selection_trop_loin, getText (configFile >> "CfgVehicles" >> (typeOf _objet) >> "displayName")];
 			};
 		}
 		else
 		{
-			player globalChat format [STR_R3F_LOG_action_remorquer_selection_objet_transporte, getText (configFile >> "CfgVehicles" >> (typeOf _objet) >> "displayName")];
+			systemChat format [STR_R3F_LOG_action_remorquer_selection_objet_transporte, getText (configFile >> "CfgVehicles" >> (typeOf _objet) >> "displayName")];
 		};
 	};
 	
