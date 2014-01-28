@@ -286,6 +286,9 @@ R3F_LOG_CFG_objets_transportables =
 [
 	["ATV_CZ_EP1", 50],
 	["ATV_US_EP1", 50],
+    ["CSJ_GyroC", 50],
+    ["CSJ_GyroCover", 50],
+    ["CSJ_GyroP", 50],
 	["M1030_US_DES_EP1", 25],
 	["MMT_Civ", 10],
 	["Old_bike_TK_INS_EP1", 10],
