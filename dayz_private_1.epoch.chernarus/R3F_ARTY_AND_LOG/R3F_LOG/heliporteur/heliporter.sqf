@@ -52,6 +52,12 @@ else
 						
 						if (_ne_remorque_pas) then
 						{
+								if (lineIntersects [(getPosASL _heliporteur), (getPosASL _objet), _heliporteur, _objet]) then
+								{
+									systemChat STR_R3F_LOG_action_heliporter_error;
+								} 
+								else 
+								{
 								// On mémorise sur le réseau que l'héliporteur remorque quelque chose
 								_heliporteur setVariable ["R3F_LOG_heliporte", _objet, true];
 								// On mémorise aussi sur le réseau que l'objet est attaché à un véhicule
@@ -65,6 +71,7 @@ else
 								]];
 								
 								systemChat format [STR_R3F_LOG_action_heliporter_fait, getText (configFile >> "CfgVehicles" >> (typeOf _objet) >> "displayName")];
+								};
 						}
 						else
 						{
