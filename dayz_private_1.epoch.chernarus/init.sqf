@@ -22,15 +22,24 @@ enableSentences false;
 // DayZ Epoch config
 spawnShoremode = 1; // Default = 1 (on shore)
 spawnArea= 1500; // Default = 1500
-
-MaxVehicleLimit = 300; // Default = 50
-MaxDynamicDebris = 500; // Default = 100
+MaxHeliCrashes= 15; // Default = 5
+MaxVehicleLimit = 500; // Default = 50
+MaxMineVeins = 50;
+MaxDynamicDebris = 150; // Default = 100
 dayz_MapArea = 14000; // Default = 10000
 dayz_maxLocalZombies = 30; // Default = 30 
+DefaultMagazines = ["ItemBandage","ItemBandage","ItemPainkiller"]; 
+DefaultWeapons = ["ItemFlashlight"]; 
+DefaultBackpack = "DZ_Patrol_Pack_EP1"; 
+dayz_zedsAttackVehicles = false;
+DZE_DeathMsgGlobal = true; 
+DZE_DeathMsgTitleText = true; 
+DZE_requireplot = 0;
+DZE_BuildingLimit = 15000;
+DZE_BackpackGuard = false;
 
 dayz_paraSpawn = false;
-
-dayz_minpos = -1; 
+dayz_minpos = 0; 
 dayz_maxpos = 16000;
 
 dayz_sellDistance_vehicle = 10;
@@ -38,27 +47,26 @@ dayz_sellDistance_boat = 30;
 dayz_sellDistance_air = 40;
 
 DZE_HeliLift = false;
-
-dayz_maxAnimals = 5; // Default: 8
-dayz_tameDogs = true;
-DynamicVehicleDamageLow = 0; // Default: 0
-DynamicVehicleDamageHigh = 100; // Default: 100
-
-DZE_BuildOnRoads = true; // Default: False
-
 DZE_PlayerZed = false;
+
+dayz_maxAnimals = 4; // Default: 8
+dayz_tameDogs = false;
+DynamicVehicleDamageLow = 40; // Default: 0
+DynamicVehicleDamageHigh = 90; // Default: 100
+DynamicVehicleFuelLow = 0;
+DynamicVehicleFuelHigh = 50;
 
 EpochEvents = [["any","any","any","any",30,"crash_spawner"],["any","any","any","any",0,"crash_spawner"],["any","any","any","any",15,"supply_drop"]];
 dayz_fullMoonNights = true;
 
 //Load in compiled functions
-call compile preprocessFileLineNumbers "\z\addons\dayz_code\init\variables.sqf";				//Initilize the Variables (IMPORTANT: Must happen very early)
+call compile preprocessFileLineNumbers "custom\variables.sqf";				// \z\addons\dayz_code\init Initilize the Variables (IMPORTANT: Must happen very early)
 progressLoadingScreen 0.1;
 call compile preprocessFileLineNumbers "\z\addons\dayz_code\init\publicEH.sqf";				//Initilize the publicVariable event handlers
 progressLoadingScreen 0.2;
 call compile preprocessFileLineNumbers "\z\addons\dayz_code\medical\setup_functions_med.sqf";	//Functions used by CLIENT for medical
 progressLoadingScreen 0.4;
-call compile preprocessFileLineNumbers "\z\addons\dayz_code\init\compiles.sqf";				//Compile regular functions
+call compile preprocessFileLineNumbers "custom\compiles.sqf";				//Compile regular functions
 progressLoadingScreen 0.5;
 call compile preprocessFileLineNumbers "server_traders.sqf";				//Compile trader configs
 progressLoadingScreen 1.0;
@@ -84,6 +92,8 @@ if (!isDedicated) then {
 	_id = player addEventHandler ["Respawn", {_id = [] spawn player_death;}];
 	_playerMonitor = 	[] execVM "\z\addons\dayz_code\system\player_monitor.sqf";	
 	
+	//anti Hack
+
 	//Lights
 	//[0,0,true,true,true,58,280,600,[0.698, 0.556, 0.419],"Generator_DZ",0.1] execVM "\z\addons\dayz_code\compile\local_lights_init.sqf";
 	
@@ -106,7 +116,7 @@ if (!isDedicated) then {
 };
 
 //Start Dynamic Weather
-execVM "\z\addons\dayz_code\external\DynamicWeatherEffects.sqf";
+[] execVM "\z\addons\dayz_code\external\DynamicWeatherEffects.sqf";
 
 
 #include "\z\addons\dayz_code\system\BIS_Effects\init.sqf"

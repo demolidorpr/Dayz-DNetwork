@@ -11,7 +11,7 @@ WaitUntil {MissionGoMinor == 1};
 MissionGoNameMinor = "Landing Party";
 publicVariable "MissionGoNameMinor"; 
 
--coord1 = [[7871.2979,3066.8784,0],[7813.6245,3113.5232,0]];
+_coord1 = [[7871.2979,3066.8784,0],[7813.6245,3113.5232,0]];
 _coord2 = [[7785.7861,3124.6489,0],[7690.1489,3114.0837,0]];
 _coord3 = [[7661.8218,3099.8113,0],[7597.4658,3051.6685,0]];
 
