@@ -366,15 +366,6 @@ if (true) then
   _this setPos [10241.49, 3198.7732, 2.2888184e-005];
 };
 
-_unit_1 = objNull;
-if (true) then
-{
-  _this = _group_0 createUnit ["USMC_SoldierS", [10197.438, 3270.4492, 0.00030899048], [], 0, "CAN_COLLIDE"];
-  _unit_1 = _this;
-  _this setUnitAbility 0.60000002;
-  if (false) then {_group_0 selectLeader _this;};
-};
-
 _vehicle_87 = objNull;
 if (true) then
 {
