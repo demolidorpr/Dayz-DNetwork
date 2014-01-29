@@ -42,9 +42,7 @@ waituntil{isNil "sm_done"}; // prevent server_monitor be called twice (bug durin
 if(isnil "MaxVehicleLimit") then {
 	MaxVehicleLimit = 50;
 };
-if(isnil "MaxHeliCrashes") then {
-	MaxHeliCrashes = 5;
-};
+
 if(isnil "MaxDynamicDebris") then {
 	MaxDynamicDebris = 100;
 };
@@ -400,7 +398,11 @@ if (isServer and isNil "sm_done") then {
 		// Epoch Events
 		_id = [] spawn server_spawnEvents;
 		// server cleanup
+		[] spawn {
+			sleep 200; //Sleep Lootcleanup, don't need directly cleanup on startup + fix some performance issues on serverstart
+			waitUntil {!isNil "server_spawnCleanAnimals"};
 			_id = [] execFSM "\z\addons\dayz_server\system\server_cleanup.fsm";
+		};
 
 		// spawn debug box
 		_debugMarkerPosition = getMarkerPos "respawn_west";

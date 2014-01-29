@@ -44,7 +44,7 @@ SAR_chance_survivors = 45;
 // maximum size of group (including Leader)
 SAR_max_grpsize_bandits = 4;
 SAR_max_grpsize_soldiers = 5;
-SAR_max_grpsize_survivors = 4;
+SAR_max_grpsize_survivors = 3;
 
 
 // -----------------------------------------------

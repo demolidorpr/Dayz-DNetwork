@@ -1,5 +1,5 @@
 // Construction Mission Created by TheSzerdi Edited by MimiC
-private ["_missiontimeout","_cleanmission","_playerPresent","_starttime","_coords","_dummymarker","_wait","_coord1","_coord2","_coord3","_coord4","_coord5","_coord6","_coord7","_coord8","_coord9","_coord10","_coord11","_coord12"];
+private ["_majortimeout","_cleanmission","_playerPresent","_starttime","_coords","_dummymarker","_wait","_coord1","_coord2","_coord3","_coord4","_coord5","_coord6","_coord7","_coord8","_coord9","_coord10","_coord11","_coord12"];
 [] execVM "\z\addons\dayz_server\Missions\SMGoMajor.sqf";
 WaitUntil {MissionGo == 1};
 
@@ -39,16 +39,16 @@ _aispawn = [_coords,60,4,6,1] execVM "\z\addons\dayz_server\missions\add_unit_se
 sleep 2;
 _aispawn = [_coords,80,6,6,1] execVM "\z\addons\dayz_server\missions\add_unit_server4.sqf";//AI Guards
 
-_missiontimeout = true;
+_majortimeout = true;
 _cleanmission = false;
 _playerPresent = false;
 _starttime = floor(time);
-while {_missiontimeout} do {
+while {_majortimeout} do {
 	sleep 5;
 	_currenttime = floor(time);
 	{if((isPlayer _x) AND (_x distance _crate <= 350)) then {_playerPresent = true};}forEach playableUnits;
 	if (_currenttime - _starttime >= 3600) then {_cleanmission = true;};
-	if ((_playerPresent) OR (_cleanmission)) then {_missiontimeout = false;};
+	if ((_playerPresent) OR (_cleanmission)) then {_majortimeout = false;};
 };
 
 if (_playerPresent) then {
