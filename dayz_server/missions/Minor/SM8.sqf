@@ -41,16 +41,16 @@ _tent addMagazineCargoGlobal ["FoodCanBakedBeans", 4];
 _tent addMagazineCargoGlobal ["ItemBandage", 4];
 _tent addMagazineCargoGlobal ["ItemMorphine", 4];
 _tent addMagazineCargoGlobal ["ItemPainkiller", 4];
-_tent addMagazineCargoGlobal ["ItemAntibiotic", 2]
+_tent addMagazineCargoGlobal ["ItemAntibiotic", 2];
 _tent addWeaponCargoGlobal ["ItemKnife", 2];
 _tent addWeaponCargoGlobal ["ItemToolbox", 2];
 _tent addWeaponCargoGlobal ["ItemMatches", 2];
 _tent addMagazineCargoGlobal ["ItemBloodbag", 2];
 _tent addMagazineCargoGlobal ["ItemJerryCan", 2];
-_tent addMagazineCargoGlobal ["MP5A5", 2]
-_tent addMagazineCargoGlobal ["30Rnd_9x19_MP5", 5]
-_tent addMagazineCargoGlobal ["glock17_EP1", 2]
-_tent addMagazineCargoGlobal ["17Rnd_9x19_glock17", 4]
+_tent addMagazineCargoGlobal ["MP5A5", 2];
+_tent addMagazineCargoGlobal ["30Rnd_9x19_MP5", 5];
+_tent addMagazineCargoGlobal ["glock17_EP1", 2];
+_tent addMagazineCargoGlobal ["17Rnd_9x19_glock17", 4];
 
 _minortimeout = true;
 _cleanmission = false;
