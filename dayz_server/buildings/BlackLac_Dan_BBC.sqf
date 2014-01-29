@@ -327,7 +327,7 @@ if (true) then
 };
 
 _vehicle_82 = objNull;
-if (true) then
+if (false) then
 {
   _this = createVehicle ["Land_Fire_barrel_burning", [10217.131, 3239.5608, -4.7683716e-005], [], 0, "CAN_COLLIDE"];
   _vehicle_82 = _this;
