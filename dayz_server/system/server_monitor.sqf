@@ -42,9 +42,7 @@ waituntil{isNil "sm_done"}; // prevent server_monitor be called twice (bug durin
 if(isnil "MaxVehicleLimit") then {
 	MaxVehicleLimit = 50;
 };
-if(isnil "MaxHeliCrashes") then {
-	MaxHeliCrashes = 5;
-};
+
 if(isnil "MaxDynamicDebris") then {
 	MaxDynamicDebris = 100;
 };
@@ -97,7 +95,6 @@ if (isServer and isNil "sm_done") then {
 			};
 		};
 	};
-	diag_log ("HIVE: got " + str(_bQty) + " Epoch Objects and " + str(_vQty) + " Vehicles");
 
 	// # NOW SPAWN OBJECTS #
 	_totalvehicles = 0;
@@ -386,7 +383,7 @@ if (isServer and isNil "sm_done") then {
                 3,        //Number of the random Loot-Piles at the Crashside 3+(1,2,3 or 4)
                 (50*60),    //Fixed-Time (in seconds) between each start of a new Chopper
                 (15*60),      //Random time (in seconds) added between each start of a new Chopper
-                0.75,        //Spawnchance of the Heli (1 will spawn all possible Choppers, 0.5 only 50% of them)
+                0.25,        //Spawnchance of the Heli (1 will spawn all possible Choppers, 0.5 only 50% of them)
                 'center', //'center' Center-Marker for the Random-Crashpoints, for Chernarus this is a point near Stary
                 8000,    // [106,[960.577,3480.34,0.002]]Radius in Meters from the Center-Marker in which the Choppers can crash and get waypoints
                 true,    //Should the spawned crashsite burn (at night) & have smoke?
@@ -400,7 +397,11 @@ if (isServer and isNil "sm_done") then {
 		// Epoch Events
 		_id = [] spawn server_spawnEvents;
 		// server cleanup
+		[] spawn {
+			sleep 200; //Sleep Lootcleanup, don't need directly cleanup on startup + fix some performance issues on serverstart
+			waitUntil {!isNil "server_spawnCleanAnimals"};
 			_id = [] execFSM "\z\addons\dayz_server\system\server_cleanup.fsm";
+		};
 
 		// spawn debug box
 		_debugMarkerPosition = getMarkerPos "respawn_west";

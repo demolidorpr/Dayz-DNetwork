@@ -139,7 +139,6 @@ R3F_LOG_CFG_heliporteurs =
 [
 	"BAF_Merlin_HC3_D",
 	"CH_47F_EP1_DZE",
-	"MH6J_DZ",
 	"Mi17_Civilian_DZ",
 	"Mi17_DZE",
 	"UH1H_DZE",

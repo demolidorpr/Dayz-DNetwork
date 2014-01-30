@@ -327,7 +327,7 @@ if (true) then
 };
 
 _vehicle_82 = objNull;
-if (true) then
+if (false) then
 {
   _this = createVehicle ["Land_Fire_barrel_burning", [10217.131, 3239.5608, -4.7683716e-005], [], 0, "CAN_COLLIDE"];
   _vehicle_82 = _this;
@@ -364,15 +364,6 @@ if (true) then
   _this = createVehicle ["Land_Fire_barrel_burning", [10241.49, 3198.7732, 2.2888184e-005], [], 0, "CAN_COLLIDE"];
   _vehicle_86 = _this;
   _this setPos [10241.49, 3198.7732, 2.2888184e-005];
-};
-
-_unit_1 = objNull;
-if (true) then
-{
-  _this = _group_0 createUnit ["USMC_SoldierS", [10197.438, 3270.4492, 0.00030899048], [], 0, "CAN_COLLIDE"];
-  _unit_1 = _this;
-  _this setUnitAbility 0.60000002;
-  if (false) then {_group_0 selectLeader _this;};
 };
 
 _vehicle_87 = objNull;

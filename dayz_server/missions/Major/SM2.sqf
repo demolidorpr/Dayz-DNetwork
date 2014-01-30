@@ -1,6 +1,6 @@
 //Medical C-130 Crash by lazyink (Full credit for original code to TheSzerdi & TAW_Tonic)
 
-private ["_missiontimeout","_cleanmission","_playerPresent","_starttime","_coords","_MainMarker","_wait"];
+private ["_majortimeout","_cleanmission","_playerPresent","_starttime","_coords","_MainMarker","_wait"];
 [] execVM "\z\addons\dayz_server\Missions\SMGoMajor.sqf";
 WaitUntil {MissionGo == 1};
 
@@ -40,16 +40,16 @@ _aispawn = [[(_coords select 0) + 20, _coords select 1,0],40,4,4,1] execVM "\z\a
 sleep 5;
 _aispawn = [[(_coords select 0) + 30, _coords select 1,0],40,4,4,1] execVM "\z\addons\dayz_server\missions\add_unit_server.sqf";//AI Guards
 
-_missiontimeout = true;
+_majortimeout = true;
 _cleanmission = false;
 _playerPresent = false;
 _starttime = floor(time);
-while {_missiontimeout} do {
+while {_majortimeout} do {
 	sleep 5;
 	_currenttime = floor(time);
 	{if((isPlayer _x) AND (_x distance _c130wreck <= 350)) then {_playerPresent = true};}forEach playableUnits;
 	if (_currenttime - _starttime >= 3600) then {_cleanmission = true;};
-	if ((_playerPresent) OR (_cleanmission)) then {_missiontimeout = false;};
+	if ((_playerPresent) OR (_cleanmission)) then {_majortimeout = false;};
 };
 
 if (_playerPresent) then {

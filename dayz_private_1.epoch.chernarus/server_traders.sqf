@@ -206,7 +206,7 @@ menu_Damsel3 = [
 ];
 // Vehicle Trader
 menu_US_Delta_Force_Undercover_Takistani06_EP1 = [
-	[["Vehicles",693],["Extra Stuff",694],["Helicopter Medic",696],["Helicopter Amphibious",697],["Helicopter Civilian",698],["Helis",699]],
+	[["Vehicles",693],["Extra Stuff",694],["Helicopter Medic",696],["Helicopter Civilian",698],["Helis",699]],
 	[],
 	"neutral"
 ];

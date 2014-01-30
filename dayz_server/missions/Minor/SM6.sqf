@@ -1,6 +1,6 @@
 //Weapon Truck Crash by lazyink (Full credit for code to TheSzerdi & TAW_Tonic)
 
-private ["_missiontimeout","_cleanmission","_playerPresent","_starttime","_coords","_wait","_MainMarker75"];
+private ["_minortimeout","_cleanmission","_playerPresent","_starttime","_coords","_wait","_MainMarker75"];
 [] execVM "\z\addons\dayz_server\Missions\SMGoMinor.sqf";
 WaitUntil {MissionGoMinor == 1};
 
@@ -37,16 +37,16 @@ sleep 1;
 [_coords,40,4,3,0] execVM "\z\addons\dayz_server\Missions\add_unit_server.sqf";//AI Guards
 sleep 1;
 
-_missiontimeout = true;
+_minortimeout = true;
 _cleanmission = false;
 _playerPresent = false;
 _starttime = floor(time);
-while {_missiontimeout} do {
+while {_minortimeout} do {
 	sleep 5;
 	_currenttime = floor(time);
 	{if((isPlayer _x) AND (_x distance _uralcrash <= 250)) then {_playerPresent = true};}forEach playableUnits;
 	if (_currenttime - _starttime >= 3600) then {_cleanmission = true;};
-	if ((_playerPresent) OR (_cleanmission)) then {_missiontimeout = false;};
+	if ((_playerPresent) OR (_cleanmission)) then {_minortimeout = false;};
 };
 
 if (_playerPresent) then {

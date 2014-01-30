@@ -2,7 +2,6 @@
 	For DayZ Epoch
 	Addons Credits: Jetski Yanahui by Kol9yN, Zakat, Gerasimow9, YuraPetrov, zGuba, A.Karagod, IceBreakr, Sahbazz
 */
-
 startLoadingScreen ["","RscDisplayLoadCustom"];
 cutText ["","BLACK OUT"];
 enableSaving [false, false];
@@ -47,6 +46,9 @@ dayz_sellDistance_vehicle = 10;
 dayz_sellDistance_boat = 30;
 dayz_sellDistance_air = 40;
 
+DZE_HeliLift = false;
+DZE_PlayerZed = false;
+
 dayz_maxAnimals = 4; // Default: 8
 dayz_tameDogs = false;
 DynamicVehicleDamageLow = 40; // Default: 0
@@ -80,7 +82,6 @@ if (isServer) then {
 	_serverMonitor = 	[] execVM "\z\addons\dayz_code\system\server_monitor.sqf";
 };
 
-
 if (!isDedicated) then {
 	//Conduct map operations
 	0 fadeSound 0;
@@ -113,7 +114,6 @@ if (!isDedicated) then {
 	// Evac Chopper
 	[] execVM "addons\JAEM\EvacChopper_init.sqf";
 };
-
 
 //Start Dynamic Weather
 [] execVM "\z\addons\dayz_code\external\DynamicWeatherEffects.sqf";

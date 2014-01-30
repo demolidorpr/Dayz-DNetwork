@@ -1,7 +1,7 @@
 //Landing party sidemission Created by TheSzerdi Edited by Falcyn [QF]
 //Edited by Fuchs
 
-private ["_missiontimeout","_cleanmission","_playerPresent","_starttime","_coord1","_coord2","_coord3","_coords","_wait","_dummymarker"];
+private ["_minortimeout","_cleanmission","_playerPresent","_starttime","_coord1","_coord2","_coord3","_coords","_wait","_dummymarker"];
 [] execVM "\z\addons\dayz_server\Missions\SMGoMinor.sqf";
 WaitUntil {MissionGoMinor == 1};
 
@@ -11,9 +11,9 @@ WaitUntil {MissionGoMinor == 1};
 MissionGoNameMinor = "Landing Party";
 publicVariable "MissionGoNameMinor"; 
 
--coord1 =[[7871.2979, 3066.8784,0],[7813.6245, 3113.5232,0]];
-_coord2 =[[7785.7861, 3124.6489,0],[7690.1489, 3114.0837,0]];
-_coord3 =[[7661.8218, 3099.8113,0],[7597.4658, 3051.6685,0]];
+_coord1 = [[7871.2979,3066.8784,0],[7813.6245,3113.5232,0]];
+_coord2 = [[7785.7861,3124.6489,0],[7690.1489,3114.0837,0]];
+_coord3 = [[7661.8218,3099.8113,0],[7597.4658,3051.6685,0]];
 
 _coords = [_coord1, _coord2, _coord3] call BIS_fnc_selectRandom;
 
@@ -41,27 +41,27 @@ _tent addMagazineCargoGlobal ["FoodCanBakedBeans", 4];
 _tent addMagazineCargoGlobal ["ItemBandage", 4];
 _tent addMagazineCargoGlobal ["ItemMorphine", 4];
 _tent addMagazineCargoGlobal ["ItemPainkiller", 4];
-_tent addMagazineCargoGlobal ["ItemAntibiotic", 2]
+_tent addMagazineCargoGlobal ["ItemAntibiotic", 2];
 _tent addWeaponCargoGlobal ["ItemKnife", 2];
 _tent addWeaponCargoGlobal ["ItemToolbox", 2];
 _tent addWeaponCargoGlobal ["ItemMatches", 2];
 _tent addMagazineCargoGlobal ["ItemBloodbag", 2];
 _tent addMagazineCargoGlobal ["ItemJerryCan", 2];
-_tent addMagazineCargoGlobal ["MP5A5", 2]
-_tent addMagazineCargoGlobal ["30Rnd_9x19_MP5", 5]
-_tent addMagazineCargoGlobal ["glock17_EP1", 2]
-_tent addMagazineCargoGlobal ["17Rnd_9x19_glock17", 4]
+_tent addMagazineCargoGlobal ["MP5A5", 2];
+_tent addMagazineCargoGlobal ["30Rnd_9x19_MP5", 5];
+_tent addMagazineCargoGlobal ["glock17_EP1", 2];
+_tent addMagazineCargoGlobal ["17Rnd_9x19_glock17", 4];
 
-_missiontimeout = true;
+_minortimeout = true;
 _cleanmission = false;
 _playerPresent = false;
 _starttime = floor(time);
-while {_missiontimeout} do {
+while {_minortimeout} do {
 	sleep 5;
 	_currenttime = floor(time);
 	{if((isPlayer _x) AND (_x distance _tent <= 250)) then {_playerPresent = true};}forEach playableUnits;
 	if (_currenttime - _starttime >= 3600) then {_cleanmission = true;};
-	if ((_playerPresent) OR (_cleanmission)) then {_missiontimeout = false;};
+	if ((_playerPresent) OR (_cleanmission)) then {_minortimeout = false;};
 };
 
 if (_playerPresent) then {

@@ -58,19 +58,19 @@ else
 								} 
 								else 
 								{
-								// On mémorise sur le réseau que l'héliporteur remorque quelque chose
-								_heliporteur setVariable ["R3F_LOG_heliporte", _objet, true];
-								// On mémorise aussi sur le réseau que l'objet est attaché à un véhicule
-								_objet setVariable ["R3F_LOG_est_transporte_par", _heliporteur, true];
-								
-								// Attacher sous l'héliporteur au ras du sol
-								_objet attachTo [_heliporteur, [
-									0,
-									0,
-									(boundingBox _heliporteur select 0 select 2) - (boundingBox _objet select 0 select 2) - (getPos _heliporteur select 2) + 0.5
-								]];
-								
-								systemChat format [STR_R3F_LOG_action_heliporter_fait, getText (configFile >> "CfgVehicles" >> (typeOf _objet) >> "displayName")];
+									// On mémorise sur le réseau que l'héliporteur remorque quelque chose
+									_heliporteur setVariable ["R3F_LOG_heliporte", _objet, true];
+									// On mémorise aussi sur le réseau que l'objet est attaché à un véhicule
+									_objet setVariable ["R3F_LOG_est_transporte_par", _heliporteur, true];
+									
+									// Attacher sous l'héliporteur au ras du sol
+									_objet attachTo [_heliporteur, [
+										0,
+										0,
+										(boundingBox _heliporteur select 0 select 2) - (boundingBox _objet select 0 select 2) - (getPos _heliporteur select 2) + 0.5
+									]];
+									
+									systemChat format [STR_R3F_LOG_action_heliporter_fait, getText (configFile >> "CfgVehicles" >> (typeOf _objet) >> "displayName")];
 								};
 						}
 						else

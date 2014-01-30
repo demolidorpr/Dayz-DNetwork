@@ -1,4 +1,4 @@
-## D-Network Dayz Epoch Server Pack 1.0.3.1
+## D-Network Dayz Epoch Server Pack 1.0.4
 
 This is custom DayZ Epoch script pack for Chernarus only. Optimized for Nitrado Admin Tool. 
 

@@ -71,7 +71,7 @@ private ["_aiunit","_xpos","_ypos","_unitpos","_aiGroup","_wppos","_wpradius","_
                 _ailoadout=
                 switch (_rndLOut) do
                 {
-                  case 0: {["M249_DZ","200Rnd_556x45_M249","glock17_EP1","17Rnd_9x19_glock17"]};
+                  case 0: {["M249_EP1_DZ","200Rnd_556x45_M249","glock17_EP1","17Rnd_9x19_glock17"]};
                   case 1: {["MG36","100Rnd_556x45_BetaCMag","Colt1911","7Rnd_45ACP_1911"]};
                   case 2: {["RPK_74","75Rnd_545x39_RPK","M9","15Rnd_9x19_M9"]};
                 };

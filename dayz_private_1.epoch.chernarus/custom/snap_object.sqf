@@ -157,7 +157,7 @@ if (!(surfaceIsWater position _object)) then {
 					//_object setPosATL (_target_object modelToWorld _pos);
 					_object setPosATL _best_spot_position;
 					SnappingResetPos = false;
-				};
+		};
 
 			} else {
 				_object call _attachToPlayer;
