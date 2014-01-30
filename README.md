@@ -31,6 +31,7 @@ This is custom DayZ Epoch script pack for Chernarus only. Optimized for Nitrado 
 - EVAC Chopper
 - No Salvage on locked vehicles
 - No Damage on locked vehicles
+- Backpack despawn fix
 
 ## Map Updates
 
@@ -100,6 +101,7 @@ Feel free to support this pack by donating at http://server.nitrado.net/donation
 - http://opendayz.net/threads/1-5-or-1-6.11631/#post-58926
 - http://epochmod.com/forum/index.php?/topic/5972-release-vehicle-key-changer-for-making-masterkey-v-11/
 - http://epochmod.com/forum/index.php?/topic/6111-release-jaem-just-another-evac-chopper-mod-v10/
+- http://epochmod.com/forum/index.php?/topic/6568-backpacks-despawn/
 
 #### Mappings
 
