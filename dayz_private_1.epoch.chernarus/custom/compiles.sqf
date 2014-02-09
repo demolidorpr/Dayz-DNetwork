@@ -17,7 +17,7 @@ if (!isDedicated) then {
 	player_weaponFiredNear =		compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_weaponFiredNear.sqf";
 	player_animalCheck =			compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_animalCheck.sqf";
 	player_spawnCheck = 			compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_spawnCheck.sqf";
-	player_dumpBackpack = 			compile preprocessFileLineNumbers "custom\player_dumpBackpack.sqf";
+	player_dumpBackpack = 			compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_dumpBackpack.sqf";
 	// player_spawnLootCheck =		compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_spawnlootCheck.sqf";
 	// player_spawnZedCheck =		compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_spawnzedCheck.sqf";
 	building_spawnLoot =			compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\building_spawnLoot.sqf";
@@ -78,10 +78,6 @@ if (!isDedicated) then {
 	//
 	dog_findTargetAgent = 			compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\dog_findTargetAgent.sqf";
 	
-	// Vehicle damage fix
-	vehicle_handleDamage    = 		compile preprocessFileLineNumbers "custom\vehicle_handleDamage.sqf";
-	vehicle_handleKilled    = 		compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\vehicle_handleKilled.sqf";
-
 	//actions
 	player_countmagazines =			compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_countmagazines.sqf";
 	player_addToolbelt =			compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_addToolbelt.sqf";
@@ -397,8 +393,11 @@ if (!isDedicated) then {
 	};
 		
 	// trader menu code
-	call compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_traderMenu.sqf";
-	
+	if (DZE_ConfigTrader) then {
+		call compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_traderMenuConfig.sqf";
+	}else{
+		call compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_traderMenuHive.sqf";
+	};
 	// recent murders menu code
 	call compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_murderMenu.sqf";
 
@@ -414,8 +413,9 @@ if (!isDedicated) then {
                 _control1 = _display displayctrl 8400;
                 _control2 = _display displayctrl 102;
         };
-                
+		if (!isNil "dayz_DisplayGenderSelect") then {
         waitUntil {!dayz_DisplayGenderSelect};
+		};
                 
         // 120 sec timeout (12000 * 0.01)
         while { _timeOut < 12000 } do {
@@ -448,39 +448,6 @@ if (!isDedicated) then {
 
             sleep 0.01;
         };
-	};
-
-	// TODO: need move it in player_monitor.fsm
-	// allow player disconnect from server, if loading hang, kicked by BE etc.
-	[] spawn {
-		private["_timeOut","_display","_control1","_control2"];
-		disableSerialization;
-		_timeOut = 0;
-		dayz_loadScreenMsg = "";
-		diag_log "DEBUG: loadscreen guard started.";
-		_display = uiNameSpace getVariable "BIS_loadingScreen";
-		_control1 = _display displayctrl 8400;
-		_control2 = _display displayctrl 102;
-		// 120 sec timeout
-		while { _timeOut < 3000 && !dayz_clientPreload && !dayz_authed } do {
-
-			if ( isNull _display ) then {
-				waitUntil { !dialog; };
-				startLoadingScreen ["","RscDisplayLoadCustom"];
-				_display = uiNameSpace getVariable "BIS_loadingScreen";
-				_control1 = _display displayctrl 8400;
-				_control2 = _display displayctrl 102;
-			};
-
-			if ( dayz_loadScreenMsg != "" ) then {
-				_control1 ctrlSetText dayz_loadScreenMsg;
-				dayz_loadScreenMsg = "";
-			};
-			_control2 ctrlSetText format["%1",round(_timeOut*0.01)];
-			_timeOut = _timeOut + 1;
-			sleep 0.01;
-		};
-		endLoadingScreen;
 	};
 
 	dayz_meleeMagazineCheck = {

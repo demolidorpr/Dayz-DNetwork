@@ -3,35 +3,6 @@ private ["_nul","_result","_pos","_wsDone","_dir","_block","_isOK","_countr","_o
 dayz_versionNo = 		getText(configFile >> "CfgMods" >> "DayZ" >> "version");
 dayz_hiveVersionNo = 	getNumber(configFile >> "CfgMods" >> "DayZ" >> "hiveVersion");
 
-// ### [CPC] Indestructible Buildables Fix
-_cpcimmune =[
-"WoodFloor_DZ",
-"WoodFloorHalf_DZ",
-"WoodFloorQuarter_DZ",
-"Land_DZE_LargeWoodDoorLocked",
-"WoodLargeWallDoor_DZ",
-"WoodLargeWallWin_DZ",
-"WoodLargeWall_DZ",
-"Land_DZE_WoodDoorLocked",
-"WoodSmallWallDoor_DZ",
-"WoodSmallWallWin_DZ",
-"Land_DZE_GarageWoodDoor",
-"Land_DZE_GarageWoodDoorLocked",
-"WoodLadder_DZ",
-"WoodStairsSans_DZ",
-"WoodStairs_DZ",
-"WoodSmallWall_DZ",
-"WoodSmallWallThird_DZ",
-"CinderWallHalf_DZ",
-"CinderWall_DZ",
-"CinderWallDoorway_DZ",
-"Land_DZE_LargeWoodDoor",
-"MetalFloor_DZ",
-"CinderWallDoorSmallLocked_DZ",
-"CinderWallSmallDoorway_DZ",
-"CinderWallDoor_DZ"
-];
-// ### [CPC] Indestructible Buildables Fix
 waitUntil{initialized}; //means all the functions are now defined
 
 diag_log "HIVE: Starting";
@@ -75,7 +46,6 @@ if (isServer and isNil "sm_done") then {
 	
 	_BuildingQueue = [];
 	_objectQueue = [];
-	_finalEpochObjArray = [];
 
 	if ((_hiveResponse select 0) == "ObjectStreamStart") then {
 		diag_log ("HIVE: Commence Object Streaming...");
@@ -172,31 +142,30 @@ if (isServer and isNil "sm_done") then {
 			clearMagazineCargoGlobal  _object;
 			// _object setVehicleAmmo DZE_vehicleAmmo;
 			
+			_object setdir _dir;
+			_object setposATL _pos;
+			_object setDamage _damage;
+			
 			if ((typeOf _object) in dayz_allowedObjects) then {
+				if (DZE_GodModeBase) then {
+					_object addEventHandler ["HandleDamage", {false}];
+					_object setDamage 0;
+				} else {
 				_object addMPEventHandler ["MPKilled",{_this call object_handleServerKilled;}];
+				};
 				// Test disabling simulation server side on buildables only.
 				_object enableSimulation false;
 				// used for inplace upgrades and lock/unlock of safe
 				_object setVariable ["OEMPos", _pos, true];
-			};
-			
-			_object setdir _dir;
-			_object setposATL _pos;
-			_object setDamage _damage;
 
-			// ### [CPC] Indestructible Buildables Fix
-					if (typeOf(_object) in _cpcimmune) then {
-						_object addEventHandler ["HandleDamage", {false}];
-						_object enableSimulation false;
 					};
-			// ### [CPC] Indestructible Buildables Fix
 
 			if (count _intentory > 0) then {
 				if (_type in DZE_LockedStorage) then {
 					// Fill variables with loot
-					_object setVariable ["WeaponCargo", (_intentory select 0), true];
-					_object setVariable ["MagazineCargo", (_intentory select 1), true];
-					_object setVariable ["BackpackCargo", (_intentory select 2), true];
+					_object setVariable ["WeaponCargo", (_intentory select 0)];
+					_object setVariable ["MagazineCargo", (_intentory select 1)];
+					_object setVariable ["BackpackCargo", (_intentory select 2)];
 				} else {
 
 					//Add weapons
@@ -286,6 +255,7 @@ if (isServer and isNil "sm_done") then {
 	
 
 	// preload server traders menu data into cache
+	if !(DZE_ConfigTrader) then {
 	{
 		// get tids
 		_traderData = call compile format["menu_%1;",_x];
@@ -321,6 +291,7 @@ if (isServer and isNil "sm_done") then {
 			} forEach (_traderData select 0);
 		};
 	} forEach serverTraders;
+	};
 
 	//  spawn_vehicles
 	_vehLimit = MaxVehicleLimit - _totalvehicles;

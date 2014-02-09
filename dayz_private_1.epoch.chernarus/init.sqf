@@ -38,6 +38,8 @@ DZE_requireplot = 0;
 DZE_BuildingLimit = 15000;
 DZE_BackpackGuard = false;
 
+DZE_GodModeBase = true;
+
 dayz_paraSpawn = false;
 dayz_minpos = 0; 
 dayz_maxpos = 16000;

@@ -381,7 +381,8 @@ DZE_HeliAllowTowFrom = [
 	"CH_47F_EP1_DZE",
 	"CH_47F_EP1_DZ",
 	"CH_47F_BAF",
-	"CH_47F_EP1"
+	"CH_47F_EP1",
+	"BAF_Merlin_DZE"
 ];
 
 DZE_HeliAllowToTow = [
@@ -447,6 +448,9 @@ if(isNil "dayz_maxZeds") then {
 if (isNil "DZE_PlayerZed") then {
 	DZE_PlayerZed = true;
 };
+if (isNil "DZE_GodModeBase") then {
+	DZE_GodModeBase = false;
+};
 if(isNil "DZEdebug") then {
 	DZEdebug = false;
 };
@@ -489,12 +493,22 @@ if(isNil "DZE_BuildOnRoads") then {
 if(isNil "DZE_MissionLootTable") then {
 	DZE_MissionLootTable = false;
 };
+if(isNil "DZE_ConfigTrader") then {
+	DZE_ConfigTrader = false;
+};
 if(isNil "DZE_LootSpawnTimer") then {
         DZE_LootSpawnTimer = 10;
 };
 if(isNil "DZE_HeliLift") then {
 	DZE_HeliLift = true;
 };
+if(isNil "DZE_DamageBeforeMaint") then {
+	DZE_DamageBeforeMaint = 0.09;
+};
+if(isNil "DZE_StaticConstructionCount") then {
+	DZE_StaticConstructionCount = 0;
+};
+
 
 // needed on server
 if(isNil "DZE_PlotPole") then {
@@ -575,10 +589,6 @@ if(isServer) then {
 		DZE_CleanNull = false;
 	};
 	
-	if(isNil "DZE_HeliLift") then {
-		DZE_HeliLift = true;
-	};
-
 	DZE_safeVehicle = ["ParachuteWest","ParachuteC"];
 };
 
@@ -593,7 +603,12 @@ if(!isDedicated) then {
 	zeroPreviousWeather = [0,0,[0,0],0];
 	zeroCurrentWeather = [0,0,[0,0],0];
 	
+	if (DZE_MissionLootTable) then {
+		dayz_baseTypes = 		getArray (missionConfigFile >> "CfgBuildingLoot" >> "Default" >> "zombieClass");
+	} else {
 	dayz_baseTypes = 		getArray (configFile >> "CfgBuildingLoot" >> "Default" >> "zombieClass");
+	};
+
 	
 	//temperature variables
 	dayz_temperatur 		= 	36;		//TeeChange
@@ -684,6 +699,10 @@ if(!isDedicated) then {
 	if(isNil "DZE_requireplot") then {
 		DZE_requireplot = 1;
 	};
+	if(isNil "DZE_R3F_WEIGHT") then {
+		DZE_R3F_WEIGHT = true;
+	};
+
 	
 	DZE_AntiWallCounter = 0;
 

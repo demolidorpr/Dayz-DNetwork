@@ -22,7 +22,7 @@ while {true} do {
 	_timeToSpawn = time + _frequency + _timeAdjust;
 	
 	//Adding some Random systems
-	_crashModel = ["UH60Wreck_DZ","UH1Wreck_DZ","Mass_grave_DZ"] call BIS_fnc_selectRandom;
+	_crashModel = ["UH60Wreck_DZ","UH1Wreck_DZ","UH60_NAVY_Wreck_DZ","UH60_ARMY_Wreck_DZ","UH60_NAVY_Wreck_burned_DZ","UH60_ARMY_Wreck_burned_DZ","Mass_grave_DZ"] call BIS_fnc_selectRandom;
 	
 	
 	if(_crashModel == "Mass_grave_DZ") then {
@@ -37,7 +37,7 @@ while {true} do {
 	
 	_crashName	= getText (configFile >> "CfgVehicles" >> _crashModel >> "displayName");
 
-	diag_log(format["CRASHSPAWNER: %1%2 chance to spawn '%3' with loot table '%4' in %5 secounds", round(_spawnChance * 100), '%', _crashName, _lootTable, _timeToSpawn]);
+	diag_log(format["CRASHSPAWNER: %1%2 chance to spawn '%3' with loot table '%4' in %5 seconds", round(_spawnChance * 100), '%', _crashName, _lootTable, _timeToSpawn]);
 
 	// Apprehensive about using one giant long sleep here given server time variances over the life of the server daemon
 	while {time < _timeToSpawn} do {
@@ -96,9 +96,11 @@ while {true} do {
 			_crash setvariable ["fadeFire",_fadeFire,true];
 		};
 
-		
-		
 		_config = 		configFile >> "CfgBuildingLoot" >> _lootTable;
+		if (DZE_MissionLootTable) then {
+			_config = missionConfigFile >> "CfgBuildingLoot" >> _lootTable;
+		};
+		
 		_itemTypes =	[] + getArray (_config >> "itemType");
 		_index =        dayz_CBLBase find toLower(_lootTable);
 		_weights =		dayz_CBLChances select _index;
