@@ -50,6 +50,8 @@ UPDATE `Traders_DATA` SET `buy` = '[1,"ItemBriefcase100oz",1]', `sell` = '[5,"It
 UPDATE `Traders_DATA` SET `buy` = '[2,"ItemGoldBar10oz",1]', `sell` = '[1,"ItemGoldBar10oz",1]' WHERE `item` LIKE  '%MTVR_DES_EP1%';
 UPDATE `Traders_DATA` SET `buy` = '[1,"ItemSilverBar",1]', `sell` = '[1,"ItemSilverBar",1]' WHERE `item` LIKE  '%Crossbow_DZ%';
 UPDATE `Traders_DATA` SET `buy` = '[1,"ItemSilverBar",1]', `sell` = '[1,"ItemSilverBar",1]' WHERE `item` LIKE  '%DZ_Assault_Pack_EP1%';
+UPDATE `Traders_DATA` SET `buy` = '[1,"ItemSilverBar",1]', `sell` = '[1,"ItemSilverBar",1]' WHERE `item` LIKE  '%ItemCrowbar%';
+UPDATE `Traders_DATA` SET `buy` = '[1,"ItemSilverBar",1]', `sell` = '[1,"ItemSilverBar",1]' WHERE `item` LIKE  '%ItemMachete%';
 
 INSERT IGNORE INTO `Traders_DATA` (`id`, `item`, `qty`, `buy`, `sell`, `order`, `tid`, `afile`) VALUES (NULL,'["BAF_Merlin_DZE",2]', 10, '[2,"ItemBriefcase100oz",1]', '[1,"ItemBriefcase100oz",1]', 0, 519, 'trade_any_vehicle');
 INSERT IGNORE INTO `Traders_DATA` (`id`, `item`, `qty`, `buy`, `sell`, `order`, `tid`, `afile`) VALUES (NULL,'["MH60S_DZE",2]', 10, '[4,"ItemBriefcase100oz",1]', '[1,"ItemBriefcase100oz",1]', 0, 512, 'trade_any_vehicle');
