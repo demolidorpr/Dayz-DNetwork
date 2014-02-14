@@ -1,5 +1,5 @@
 /*
-Build Snapping - Extended v1.3
+Build Snapping - Extended v1.5
 
 Idea and first code:
 Maca
@@ -79,6 +79,10 @@ while {true} do {
 
 		if(_zheightdirection == "down_ctrl") then {
 			SnappingOffset set [2, ((SnappingOffset select 2) - 0.01)];
+		};
+
+		if((_isAllowedUnderGround == 0) and ((SnappingOffset select 2) < 0)) then {
+			SnappingOffset set [2,0];
 		};
 	};
 

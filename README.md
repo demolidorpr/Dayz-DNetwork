@@ -1,4 +1,4 @@
-## D-Network Dayz Epoch Server Pack 1.0.4.1
+## D-Network Dayz Epoch Server Pack 1.0.4.2
 
 This is custom DayZ Epoch script pack for Chernarus only. Optimized for Nitrado Admin Tool. 
 
@@ -93,8 +93,7 @@ Feel free to support this pack by donating at http://server.nitrado.net/donation
 - http://opendayz.net/threads/epoch-safe-zone-commander-god-anti-backpack-stealing-no-shooting-no-vehicle-weapons.14877/
 - http://opendayz.net/threads/custom-wrecks-with-loot-why-limit-it-to-heli-crashes-p.10426/
 - http://epochmod.com/forum/index.php?/topic/3935-release-vehicle-service-point-refuel-repair-rearm-script/
-- http://epochmod.com/forum/index.php?/topic/6036-release-build-snapping-extended-v13/
-- http://dayzepoch.com/forum/index.php?/topic/1673-how-to-cpc-indestructible-bases/
+- http://epochmod.com/forum/index.php?/topic/6036-release-build-snapping-extended-v15-updated-02052014/
 - http://www.armaholic.com/page.php?id=9285
 - http://epochmod.com/forum/index.php?/topic/2112-tutorial-disabling-r3f-towlift-for-locked-vehicles/
 - http://opendayz.net/threads/1-5-or-1-6.11631/#post-58926

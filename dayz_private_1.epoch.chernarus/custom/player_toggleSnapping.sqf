@@ -1,5 +1,5 @@
 /*
-Build Snapping - Extended v1.3
+Build Snapping - Extended v1.5
 
 Idea and first code:
 Maca

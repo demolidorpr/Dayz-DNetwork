@@ -3,7 +3,7 @@
 	Made for DayZ Epoch please ask permission to use/edit/distrubute email vbawol@veteranbastards.com.
 */
 /*
-Build Snapping - Extended v1.3
+Build Snapping - Extended v1.5
 
 Idea and first code:
 Maca
@@ -12,13 +12,13 @@ Reworked:
 OtterNas3
 01/11/2014
 */
-private ["_location","_dir","_classname","_item","_hasrequireditem","_missing","_hastoolweapon","_cancel","_reason","_started","_finished","_animState","_isMedic","_dis","_sfx","_hasbuilditem","_tmpbuilt","_onLadder","_isWater","_require","_text","_offset","_IsNearPlot","_isOk","_location1","_location2","_counter","_limit","_proceed","_num_removed","_position","_object","_canBuildOnPlot","_friendlies","_nearestPole","_ownerID","_findNearestPoles","_findNearestPole","_distance","_classnametmp","_ghost","_isPole","_needText","_lockable","_zheightchanged","_rotate","_combination_1","_combination_2","_combination_3","_combination_4","_combination","_combination_1_Display","_combinationDisplay","_zheightdirection","_abort","_isNear","_need","_objHupDiff","_needNear","_vehicle","_inVehicle","_previewCounter","_requireplot","_objHDiff","_isLandFireDZ","_isTankTrap"];
+private ["_location","_dir","_classname","_item","_hasrequireditem","_missing","_hastoolweapon","_cancel","_reason","_started","_finished","_animState","_isMedic","_dis","_sfx","_hasbuilditem","_tmpbuilt","_onLadder","_isWater","_require","_text","_offset","_IsNearPlot","_isOk","_location1","_location2","_counter","_limit","_proceed","_num_removed","_position","_object","_canBuildOnPlot","_friendlies","_nearestPole","_ownerID","_findNearestPoles","_findNearestPole","_distance","_classnametmp","_ghost","_isPole","_needText","_lockable","_zheightchanged","_rotate","_combination_1","_combination_2","_combination_3","_combination_4","_combination","_combination_1_Display","_combinationDisplay","_zheightdirection","_abort","_isNear","_need","_objHupDiff","_needNear","_vehicle","_inVehicle","_requireplot","_objHDiff","_isLandFireDZ","_isTankTrap"];
 
 if(DZE_ActionInProgress) exitWith { cutText [(localize "str_epoch_player_40") , "PLAIN DOWN"]; };
 DZE_ActionInProgress = true;
 
 // disallow building if too many objects are found within 30m
-if((count ((position player) nearObjects ["All",30])) >= DZE_BuildingLimit) exitWith {DZE_ActionInProgress = false; cutText [(localize "str_epoch_player_41"), "PLAIN DOWN"];};
+if((count ((getPosATL player) nearObjects ["All",30])) >= DZE_BuildingLimit) exitWith {DZE_ActionInProgress = false; cutText [(localize "str_epoch_player_41"), "PLAIN DOWN"];};
 
 _onLadder =		(getNumber (configFile >> "CfgMovesMaleSdr" >> "States" >> (animationState player) >> "onLadder")) == 1;
 _isWater = 		dayz_isSwimming;
@@ -62,12 +62,10 @@ _reason = "";
 _needNear = 	getArray (configFile >> "CfgMagazines" >> _item >> "ItemActions" >> "Build" >> "neednearby");
 
 {
-	_need = _x select 0;
-	_distance = _x select 1;
-	switch(_need) do{
+	switch(_x) do{
 		case "fire":
 		{
-			_isNear = {inflamed _x} count (position player nearObjects _distance);
+			_isNear = {inflamed _x} count (getPosATL player nearObjects _distance);
 			if(_isNear == 0) then {  
 				_abort = true;
 				_reason = "fire";
@@ -87,6 +85,7 @@ _needNear = 	getArray (configFile >> "CfgMagazines" >> _item >> "ItemActions" >>
 			if(_isNear == 0) then {  
 				_abort = true;
 				_reason = "fuel tank";
+				_distance = 30;
 			};
 		};
 	};
@@ -127,11 +126,11 @@ if((count _offset) <= 0) then {
 _isPole = (_classname == "Plastic_Pole_EP1_DZ");
 _isLandFireDZ = (_classname == "Land_Fire_DZ");
 
-_distance = 30;
+_distance = DZE_PlotPole select 0;
 _needText = localize "str_epoch_player_246";
 
 if(_isPole) then {
-	_distance = 60;
+	_distance = DZE_PlotPole select 1;
 };
 
 // check for near plot
@@ -149,7 +148,7 @@ _IsNearPlot = count (_findNearestPole);
 // If item is plot pole and another one exists within 45m
 if(_isPole and _IsNearPlot > 0) exitWith {  DZE_ActionInProgress = false; cutText [(localize "str_epoch_player_44") , "PLAIN DOWN"]; };
 
-if(_IsNearPlot <= 0) then {
+if(_IsNearPlot == 0) then {
 
 	// Allow building of plot
 	if(_requireplot == 0 or _isLandFireDZ) then {
@@ -209,24 +208,27 @@ if (_hasrequireditem) then {
 	_location1 = getPosATL player;
 	_dir = getDir player;
 
+	/* Commented out cause GHOST preview does not work with snapping!
 	// if ghost preview available use that instead
-	/*if (_ghost != "") then {
+	if (_ghost != "") then {
 		_classname = _ghost;
-	};*/
+	};
+	*/
 
 	_object = createVehicle [_classname, _location, [], 0, "CAN_COLLIDE"];
 	_object setDir _dir;
 	_object attachTo [player,_offset];
-	// ### [CPC] Indestructible Base Fix	
+	
+  if (DZE_GodModeBase) then {
     _object addEventHandler ["HandleDamage", {false}];
-    _object enableSimulation false;
-	// ### [CPC] Indestructible Base Fix
+  } else {
+    _object addMPEventHandler ["MPKilled",{_this call object_handleServerKilled;}];
+  };
 	
 	_position = getPosATL _object;
 
 	cutText [(localize "str_epoch_player_45"), "PLAIN DOWN"];
 
-	_previewCounter = 120;
 	
 	player allowDamage false;
 	SnappingOffset = _offset;
@@ -237,9 +239,8 @@ if (_hasrequireditem) then {
 	SnappingResetPos = false;
 
 	if (isClass (missionConfigFile >> "SnapPoints" >> _classname)) then {
-		s_building_snapping = player addAction ["<t color=""#0000ff"">Toggle Snapping</t>", "custom\player_toggleSnapping.sqf",_classname, 3, true, false, "",""];
+		s_building_snapping = player addAction ["<t color=""#0000ff"">Toggle Snapping</t>", "custom\snap_build\player_toggleSnapping.sqf",_classname, 3, true, false, "",""];
 	};
-	//s_building_rotate = player addAction ["<t color=""#0000ff"">Rotate</t>", "dayz_code\actions\player_buildingRotate.sqf",false, 3, true, false, "",""];
 	
 	_snapper = [_object, _classname] spawn snap_object;
 	_key_monitor = [] spawn player_buildControls ;
@@ -253,7 +254,6 @@ if (_hasrequireditem) then {
 			detach _object;
 			_dir = getDir _object;
 			_position = getPosATL _object;
-			diag_log format["DEBUG BUILDING POS: %1", _position];
 		};
 
 		if(_location1 distance _location2 > 5) exitWith {
@@ -262,17 +262,6 @@ if (_hasrequireditem) then {
 			_reason = "You've moved to far away from where you started building (within 5 meters)"; 
 			detach _object;
 		};
-		
-		[format["<t size='0.6'>Time left to build: %1</t>",(ceil(_previewCounter))],0,0.8,0.5,0,0,8] spawn BIS_fnc_dynamicText;
-		
-		if(_previewCounter <= 0) exitWith {
-			_isOk = false;
-			_cancel = true;
-			_reason = "Ran out of time to find position"; 
-			detach _object;
-		};
-
-		_previewCounter = _previewCounter - 0.5;
 		
 		if(((SnappingOffset select 2) > 5) or ((SnappingOffset select 2) < -5)) exitWith {
 			_isOk = false;
@@ -301,9 +290,10 @@ if (_hasrequireditem) then {
 	player removeAction s_building_snapping;
 	player allowDamage true;
 	
-	// No building on roads
-	if (isOnRoad _position) then { _cancel = true; _reason = "Cannot build on a road."; };
-
+	//No building on roads unless toggled
+	if (!DZE_BuildOnRoads) then {
+		if (isOnRoad _position) then { _cancel = true; _reason = "Cannot build on a road."; };
+	};
 	// No building in trader zones
 	if(!canbuild) then { _cancel = true; _reason = "Cannot build in a city."; };
 	if(!placevault) then { _cancel = true; _reason = "Cannot build in a city."; };
@@ -312,21 +302,13 @@ if (_hasrequireditem) then {
 
 		_classname = _classnametmp;
 
-		// Start Build 
-		//_tmpbuilt = createVehicle [_classname, _location, [], 0, "CAN_COLLIDE"];
-
-		//_tmpbuilt setdir _dir;
-	
-		// Get position based on object
 		_location = _position;
 
 		if((_isAllowedUnderGround == 0) and ((_location select 2) < 0)) then {
 			_location set [2,0];
 		};
 	
-		//_tmpbuilt setPosATL _location;
-
-		
+		_object setPosATL _location;
 		cutText [format[(localize "str_epoch_player_138"),_text], "PLAIN DOWN"];
 		
 		_limit = 3;
@@ -401,6 +383,10 @@ if (_hasrequireditem) then {
 
 				cutText [format[localize "str_build_01",_text], "PLAIN DOWN"];
 
+				if (_isPole) then {
+					[] spawn player_plotPreview;
+				};
+
 				_object setVariable ["OEMPos",_location,true];
 
 				if(_lockable > 1) then {
@@ -414,7 +400,7 @@ if (_hasrequireditem) then {
 							_combination_2 = floor(random 10);
 							_combination_3 = floor(random 10);
 							_combination = format["%1%2%3",_combination_1,_combination_2,_combination_3];
-
+							dayz_combination = _combination;
 							if (_combination_1 == 100) then {
 								_combination_1_Display = "Red";
 							};
@@ -432,6 +418,7 @@ if (_hasrequireditem) then {
 							_combination_2 = floor(random 10);
 							_combination_3 = floor(random 10);
 							_combination = format["%1%2%3",_combination_1,_combination_2,_combination_3];
+							dayz_combination = _combination;
 							_combinationDisplay = _combination;
 						};
 						
@@ -441,6 +428,7 @@ if (_hasrequireditem) then {
 							_combination_3 = floor(random 10);
 							_combination_4 = floor(random 10);
 							_combination = format["%1%2%3%4",_combination_1,_combination_2,_combination_3,_combination_4];
+							dayz_combination = _combination;
 							_combinationDisplay = _combination;
 						};
 					};
