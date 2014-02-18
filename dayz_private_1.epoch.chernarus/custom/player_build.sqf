@@ -239,7 +239,7 @@ if (_hasrequireditem) then {
 	SnappingResetPos = false;
 
 	if (isClass (missionConfigFile >> "SnapPoints" >> _classname)) then {
-		s_building_snapping = player addAction ["<t color=""#0000ff"">Toggle Snapping</t>", "custom\snap_build\player_toggleSnapping.sqf",_classname, 3, true, false, "",""];
+		s_building_snapping = player addAction ["<t color=""#0000ff"">Toggle Snapping</t>", "custom\player_toggleSnapping.sqf",_classname, 3, true, false, "",""];
 	};
 	
 	_snapper = [_object, _classname] spawn snap_object;
