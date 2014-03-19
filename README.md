@@ -61,8 +61,8 @@ This is custom DayZ Epoch script pack for Chernarus only. Optimized for Nitrado 
 - Create ```dayz_private_1.epoch.chernarus.pbo```and ```dayz_server.pbo```
 - Upload ```dayz_private_1.epoch.chernarus.pbo``` to ```\dayz\mpmissions\```
 - Upload ```dayz_server.pbo``` to ```\dayz\@DayZ_Epoch_Server\addons\```
-- Clear table ```SERVER_TRADERS```, ```TRADER_DATA```, ```TRADER_TIDS```
-- Import attached SQL files
+- Clear SQL table ```SERVER_TRADERS```, ```TRADER_DATA```, ```TRADER_TIDS``` from database
+- Import attached SQL files into database
 - Start your server
 
 ### Configuration
